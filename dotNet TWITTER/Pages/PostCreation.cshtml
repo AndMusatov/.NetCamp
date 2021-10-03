@@ -1,0 +1,21 @@
+@page "/PostCreation"
+
+@model dotNet_TWITTER.Pages.IndexModel
+@using Microsoft.AspNetCore.Components.Web
+@if (Model.IsCorrect)
+{
+    using (Html.BeginForm("FormRoute", null, FormMethod.Post, new { @class = "PostCreation", data_formType = "PostCreation" }))
+    {
+        <div class="item">
+            <label>What is happening?</label>
+            <p>@Html.TextBoxFor(Post => Post.PostFilling)</p>
+        </div>
+        <p><input type="button" value="Отправить" /></p>
+    }
+<div><button onclick="Create_Click">Post</button></div>
+
+}
+else
+{
+    <p>Переданы некорректные данные</p>
+}

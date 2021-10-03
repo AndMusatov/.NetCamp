@@ -1,0 +1,78 @@
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\appsettings.Development.json
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\appsettings.json
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\dotNet TWITTER.StaticWebAssets.xml
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\dotNet TWITTER.exe
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\dotNet TWITTER.deps.json
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\dotNet TWITTER.runtimeconfig.json
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\dotNet TWITTER.runtimeconfig.dev.json
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\dotNet TWITTER.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\ref\dotNet TWITTER.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\dotNet TWITTER.pdb
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\dotNet TWITTER.Views.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\dotNet TWITTER.Views.pdb
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.Bcl.HashCode.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\System.Runtime.Caching.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.csproj.AssemblyReference.cache
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.GeneratedMSBuildEditorConfig.editorconfig
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.AssemblyInfoInputs.cache
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.AssemblyInfo.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.csproj.CoreCompileInputs.cache
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.MvcApplicationPartsAssemblyInfo.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.MvcApplicationPartsAssemblyInfo.cache
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.RazorAssemblyInfo.cache
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.RazorAssemblyInfo.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\staticwebassets\dotNet TWITTER.StaticWebAssets.Manifest.cache
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\staticwebassets\dotNet TWITTER.StaticWebAssets.xml
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\scopedcss\bundle\dotNet TWITTER.styles.css
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.TagHelpers.input.cache
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.TagHelpers.output.cache
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.RazorCoreGenerate.cache
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.RazorTargetAssemblyInfo.cache
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.RazorTargetAssemblyInfo.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.Views.pdb
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.csproj.CopyComplete
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\ref\dotNet TWITTER.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.pdb
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.genruntimeconfig.cache
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\System.Text.Encodings.Web.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Pages\PostCreation.cshtml.g.cs
