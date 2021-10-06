@@ -1,5 +1,3 @@
-C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\appsettings.Development.json
-C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\appsettings.json
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\dotNet TWITTER.StaticWebAssets.xml
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\dotNet TWITTER.exe
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\dotNet TWITTER.deps.json
@@ -42,7 +40,6 @@ C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-x
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.csproj.AssemblyReference.cache
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.GeneratedMSBuildEditorConfig.editorconfig
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.AssemblyInfoInputs.cache
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.AssemblyInfo.cs
@@ -57,15 +54,6 @@ C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\scopedcss\bund
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.TagHelpers.input.cache
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.TagHelpers.output.cache
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.RazorCoreGenerate.cache
-C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
-C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
-C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
-C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.RazorTargetAssemblyInfo.cache
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.RazorTargetAssemblyInfo.cs
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.Views.pdb
@@ -75,4 +63,17 @@ C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\ref\dotNet TWI
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.pdb
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.genruntimeconfig.cache
 C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\System.Text.Encodings.Web.dll
-C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Pages\PostCreation.cshtml.g.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\dotNet TWITTER.csproj.AssemblyReference.cache
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\MediatR.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\src\WEB UI\appsettings.Development.json
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\src\WEB UI\appsettings.json
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\src\WEB UI\Properties\launchSettings.json
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\src\WEB UI\Properties\serviceDependencies.json
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\bin\Debug\net5.0\src\WEB UI\Properties\serviceDependencies.local.json
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Visual_Projects\dotNet TWITTER\dotNet TWITTER\obj\Debug\net5.0\Razor\Views\PostCreation\PostCreation.cshtml.g.cs
