@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nuf5etpjYM2Y/8b+78Kbvj/YUdSHEi5YsEjaK4FCGBClR4MkrYNQ/2O9tG/2/qzFczrkYWWXpPcgn/RB9kgc0w==",
+  "dgSpecHash": "YHgjXO7sutm3SbKxBLcfOPI77MiXFgcqT9347kBnB6CXuu1zzB4P83v9vDPnDIw5PU0/8attDbISHcQgCJHdkA==",
   "success": true,
-  "projectFilePath": "C:\\Visual_Projects\\dotNet TWITTER\\dotNet TWITTER\\dotNet TWITTER.csproj",
+  "projectFilePath": "C:\\Visual_Projects\\ELEKScamp\\dotNet TWITTER\\WEB UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\musat\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",

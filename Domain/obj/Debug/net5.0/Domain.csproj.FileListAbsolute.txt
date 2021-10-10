@@ -1,0 +1,16 @@
+C:\Visual_Projects\ELEKScamp\Domain\obj\Debug\net5.0\Domain.csproj.AssemblyReference.cache
+C:\Visual_Projects\ELEKScamp\Domain\obj\Debug\net5.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Visual_Projects\ELEKScamp\Domain\obj\Debug\net5.0\Domain.AssemblyInfoInputs.cache
+C:\Visual_Projects\ELEKScamp\Domain\obj\Debug\net5.0\Domain.AssemblyInfo.cs
+C:\Visual_Projects\ELEKScamp\Domain\obj\Debug\net5.0\Domain.csproj.CoreCompileInputs.cache
+C:\Visual_Projects\ELEKScamp\Domain\bin\Debug\net5.0\Domain.exe
+C:\Visual_Projects\ELEKScamp\Domain\bin\Debug\net5.0\Domain.deps.json
+C:\Visual_Projects\ELEKScamp\Domain\bin\Debug\net5.0\Domain.runtimeconfig.json
+C:\Visual_Projects\ELEKScamp\Domain\bin\Debug\net5.0\Domain.runtimeconfig.dev.json
+C:\Visual_Projects\ELEKScamp\Domain\bin\Debug\net5.0\Domain.dll
+C:\Visual_Projects\ELEKScamp\Domain\bin\Debug\net5.0\ref\Domain.dll
+C:\Visual_Projects\ELEKScamp\Domain\bin\Debug\net5.0\Domain.pdb
+C:\Visual_Projects\ELEKScamp\Domain\obj\Debug\net5.0\Domain.dll
+C:\Visual_Projects\ELEKScamp\Domain\obj\Debug\net5.0\ref\Domain.dll
+C:\Visual_Projects\ELEKScamp\Domain\obj\Debug\net5.0\Domain.pdb
+C:\Visual_Projects\ELEKScamp\Domain\obj\Debug\net5.0\Domain.genruntimeconfig.cache
