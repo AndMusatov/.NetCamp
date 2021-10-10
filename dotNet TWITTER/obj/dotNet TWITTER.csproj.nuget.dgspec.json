@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Visual_Projects\\dotNet TWITTER\\dotNet TWITTER\\dotNet TWITTER.csproj": {}
+    "C:\\Visual_Projects\\ELEKScamp\\dotNet TWITTER\\dotNet TWITTER.csproj": {}
   },
   "projects": {
-    "C:\\Visual_Projects\\dotNet TWITTER\\dotNet TWITTER\\dotNet TWITTER.csproj": {
+    "C:\\Visual_Projects\\ELEKScamp\\dotNet TWITTER\\dotNet TWITTER.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Visual_Projects\\dotNet TWITTER\\dotNet TWITTER\\dotNet TWITTER.csproj",
+        "projectUniqueName": "C:\\Visual_Projects\\ELEKScamp\\dotNet TWITTER\\dotNet TWITTER.csproj",
         "projectName": "dotNet TWITTER",
-        "projectPath": "C:\\Visual_Projects\\dotNet TWITTER\\dotNet TWITTER\\dotNet TWITTER.csproj",
+        "projectPath": "C:\\Visual_Projects\\ELEKScamp\\dotNet TWITTER\\dotNet TWITTER.csproj",
         "packagesPath": "C:\\Users\\musat\\.nuget\\packages\\",
-        "outputPath": "C:\\Visual_Projects\\dotNet TWITTER\\dotNet TWITTER\\obj\\",
+        "outputPath": "C:\\Visual_Projects\\ELEKScamp\\dotNet TWITTER\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\musat\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -111,7 +111,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
