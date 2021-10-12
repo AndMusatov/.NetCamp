@@ -5,6 +5,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using dotNet_TWITTER.Applications.Common.Models;
 using Microsoft.EntityFrameworkCore;
+using dotNet_TWITTER.Applications.Data;
 
 namespace dotNet_TWITTER.WEB_UI
 {
@@ -12,6 +13,7 @@ namespace dotNet_TWITTER.WEB_UI
     {
         public static void Main(string[] args)
         {
+            var init = new IPostDataBase();
             var host = CreateHostBuilder(args).Build();
             host.Run();
         }

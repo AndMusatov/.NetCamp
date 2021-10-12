@@ -13,19 +13,20 @@ using System.Collections.Generic;
 
 namespace dotNet_TWITTER.WEB_UI.Controllers
 {
-    public class PostCreationController : Controller
+    public class MainPostController : Controller
     {
-        public ActionResult Index()
-        {
-            return View("PostCreation");
-        }
 
         [HttpPost("PostCreation")]
-        public ActionResult Create(string filling)
+        public ActionResult CreatePost(string filling)
         {
-            var service = new IPostDataBase();
-            service.Create(filling);
-            return Ok();
+            return Ok(IPostDataBase.AddPost(filling));
+        }
+
+        [HttpGet("ShowPost")]
+        public ActionResult Index(int id)
+        {
+            //var init = new IPostDataBase();
+            return Ok(IPostDataBase.SendPost(id));
         }
     }
 }

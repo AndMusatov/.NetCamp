@@ -3,7 +3,7 @@ using dotNet_TWITTER.Applications.Data;
 
 namespace Posts.Test
 {
-    public class Tests
+    public class MainPostsTests
     {
         [SetUp]
         public void Setup()
@@ -16,7 +16,7 @@ namespace Posts.Test
             //arrange
             var service = new IPostDataBase();
             //act
-            var result = service.CreateTest(filling);
+            var result = IPostDataBase.AddPostInitCheck(filling);
             //assert
             Assert.IsTrue(result);
         }
@@ -28,9 +28,20 @@ namespace Posts.Test
             //arrange
             var service = new IPostDataBase();
             //act
-            var result = service.CreateTest(filling);
+            var result = IPostDataBase.AddPostInitCheck(filling);
             //assert
             Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void ShowingPosts_ShouldReturnTrue()
+        {
+            //arrange
+            var service = new IPostDataBase();
+            //act
+            var result = service.PostInitCheck();
+            //assert
+            Assert.IsTrue(result);
         }
     }
 }
