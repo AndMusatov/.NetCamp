@@ -15,22 +15,26 @@ namespace dotNet_TWITTER.Applications.Data
             {
                 new Post
                 {
-                    Id = 1,
+                    Id = 0,
                     Filling = "FirstPost",
-                    Date = DateTime.Now
+                    Date = DateTime.Now,
                 },
                 new Post
                 {
-                    Id = 2,
+                    Id = 1,
                     Filling = "SecondPost",
-                    Date = DateTime.Now
+                    Date = DateTime.Now,
                 }
             };
         }
 
-        public static Post Send(int i)
+        public static Post SendPost(int i)
         {
-            return PostsDB[i];
+            if (PostsDB.Count >= i)
+            {
+                return PostsDB[i];
+            }
+            return null;
         }
 
         public bool PostInitCheck()
@@ -42,29 +46,92 @@ namespace dotNet_TWITTER.Applications.Data
             return true;
         }
 
-        public bool CreateTest(string filling)
+        public static bool AddPostInitCheck(string filling)
         {
             if (string.IsNullOrEmpty(filling))
             {
                 return false;
             }
-            Create(filling);
-            if (PostsDB.Count == 3)
-            {
-                return true;
-            }
-            return false;
+            return true;
         }
-        public void Create(string filling)
+
+        public static string AddPost(string filling)
         {
-            PostsDB.Add(
+            if (AddPostInitCheck(filling))
+            {
+                PostsDB.Add(
                 new Post
                 {
-                    Id = PostsDB.Count + 1,
+                    Id = PostsDB.Count,
                     Date = DateTime.Now,
                     Filling = filling
                 }
                 );
+                return "Input is Ok";
+            }
+            return "Input is wrong";
+        }
+
+        public static Comment SendComment(int postId, int commentId)
+        {
+            return PostsDB[postId].Comments[commentId];
+        }
+
+        public static string AddComment(int postId, string comment)
+        {
+            if (CommentsInputCheck(postId, comment))
+            {
+                PostsDB[postId].Comments.Add(
+                new Comment
+                {
+                    PostId = postId,
+                    CommentFilling = comment
+                }
+                );
+                return "Input is Ok";
+            }
+            return "Input is wrong";
+        }
+
+        public static bool CommentsInputCheck(int postId, string comment)
+        {
+            if (string.IsNullOrEmpty(comment))
+            {
+                return false;
+            }
+            if (PostsDB.Count <= postId)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static string AddLike(int postId)
+        {
+            if (LikeInputCheck(postId))
+            {
+                PostsDB[postId].Likes.Add("User");
+                return "Input is ok";
+            }
+            return "Wrong input Id";
+        }
+
+        public static int PostLikesQuantity(int postId)
+        {
+            if (LikeInputCheck(postId))
+            {
+                return PostsDB[postId].Likes.Count;
+            }
+            return 0;
+        }
+
+        public static bool LikeInputCheck(int postId)
+        {
+            if (postId >= PostsDB.Count)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
