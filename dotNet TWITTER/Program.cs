@@ -13,7 +13,12 @@ namespace dotNet_TWITTER.WEB_UI
     {
         public static void Main(string[] args)
         {
-            var init = new IPostDataBase();
+            var initDataBase = new IPostDataBase();
+            var initUsers = new IUserDataBase();
+            var initLogin = new LoginStatusDTO();
+            var initMainPostActions = new MainPostsActions();
+            var initCommentsActions = new CommentsActions();
+            var initLikes = new LikesActions();
             var host = CreateHostBuilder(args).Build();
             host.Run();
         }

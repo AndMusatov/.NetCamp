@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using dotNet_TWITTER.Applications.Data;
+using FluentAssertions;
 
 namespace Posts.Test
 {
@@ -10,27 +11,19 @@ namespace Posts.Test
         {
         }
 
-        [TestCase("ThirdPost")]
-        public void CreationPost_ShouldReturnTrue(string filling)
+        [TestCase("", false)]
+        [TestCase(null, false)]
+        [TestCase("ThirdPost", true)]
+        public void CreationPost_Test(string filling, bool expectedResult)
         {
             //arrange
             var service = new IPostDataBase();
+            var actions = new MainPostsActions();
             //act
-            var result = IPostDataBase.AddPostInitCheck(filling);
+            var result = actions.CanCreatePost(filling);
             //assert
-            Assert.IsTrue(result);
-        }
-
-        [TestCase("")]
-        [TestCase(null)]
-        public void CreationPost_ShouldReturnFalse(string filling)
-        {
-            //arrange
-            var service = new IPostDataBase();
-            //act
-            var result = IPostDataBase.AddPostInitCheck(filling);
-            //assert
-            Assert.IsFalse(result);
+            //Assert.AreEqual(expectedResult, result);
+            result.Should().Be(expectedResult);
         }
 
         [Test]
@@ -38,8 +31,9 @@ namespace Posts.Test
         {
             //arrange
             var service = new IPostDataBase();
+            var actions = new MainPostsActions();
             //act
-            var result = service.PostInitCheck();
+            var result = actions.PostInitCheck();
             //assert
             Assert.IsTrue(result);
         }

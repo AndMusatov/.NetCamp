@@ -109,3 +109,7 @@ C:\Visual_Projects\ELEKScamp\Posts.Test\obj\Debug\net5.0\Posts.Test.dll
 C:\Visual_Projects\ELEKScamp\Posts.Test\obj\Debug\net5.0\ref\Posts.Test.dll
 C:\Visual_Projects\ELEKScamp\Posts.Test\obj\Debug\net5.0\Posts.Test.pdb
 C:\Visual_Projects\ELEKScamp\Posts.Test\obj\Debug\net5.0\Posts.Test.genruntimeconfig.cache
+C:\Visual_Projects\ELEKScamp\Posts.Test\bin\Debug\net5.0\FluentAssertions.dll
+C:\Visual_Projects\ELEKScamp\Posts.Test\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Visual_Projects\ELEKScamp\Posts.Test\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Visual_Projects\ELEKScamp\Posts.Test\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
