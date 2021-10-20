@@ -8,24 +8,20 @@ using dotNet_TWITTER.Applications.Data;
 
 namespace dotNet_TWITTER.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class PostLikesController : ControllerBase
     {
+        private LikesActions likesActions;
         [HttpPost("AddPostLikes")]
-        public ActionResult AddPostLike(int id)
+        public ActionResult AddPostLike(int id, LikesActions likesActions)
         {
-            return Ok(IPostDataBase.AddLike(id));
+            this.likesActions = likesActions;
+            return Ok(likesActions.AddLike(id));
         }
         [HttpGet("ShowPostLikes")]
-        public ActionResult ShowPostLikes(int id)
+        public ActionResult ShowPostLikes(int id, LikesActions likesActions)
         {
-            int result = IPostDataBase.PostLikesQuantity(id);
-            if (result == 0)
-            {
-                return Ok("Wrong id Input");
-            }
-            return Ok(IPostDataBase.PostLikesQuantity(id));
+            this.likesActions = likesActions;
+            return Ok(likesActions.PostLikesQuantity(id));
         }
     }
 }

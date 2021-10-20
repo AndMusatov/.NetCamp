@@ -8,20 +8,28 @@ using dotNet_TWITTER.Applications.Data;
 
 namespace dotNet_TWITTER.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class PostCommentsController : ControllerBase
     {
+        private CommentsActions commentsActions;
         [HttpPost("PostCommentCreation")]
-        public ActionResult CreatePost(int id, string filling)
+        public ActionResult CreatePost(int id, string filling, CommentsActions commentsActions)
         {
-            return Ok(IPostDataBase.AddComment(id, filling));
+            this.commentsActions = commentsActions;
+            return Ok(commentsActions.AddComment(id, filling));
         }
 
         [HttpGet("ShowComment")]
-        public ActionResult Index(int idPost, int idComment)
+        public ActionResult ShowComment(int idPost, int idComment, CommentsActions commentsActions)
         {
-            return Ok(IPostDataBase.SendComment(idPost, idComment));
+            this.commentsActions = commentsActions;
+            return Ok(commentsActions.GetComment(idPost, idComment));
+        }
+
+        [HttpGet("ShowComments")]
+        public ActionResult ShowComments(int idPost, CommentsActions commentsActions)
+        {
+            this.commentsActions = commentsActions;
+            return Ok(commentsActions.GetComments(idPost));
         }
     }
 }

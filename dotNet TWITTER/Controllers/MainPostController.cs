@@ -15,18 +15,27 @@ namespace dotNet_TWITTER.WEB_UI.Controllers
 {
     public class MainPostController : Controller
     {
+        private MainPostsActions postsActions;
 
         [HttpPost("PostCreation")]
-        public ActionResult CreatePost(string filling)
+        public ActionResult CreatePost(string filling, MainPostsActions postsActions)
         {
-            return Ok(IPostDataBase.AddPost(filling));
+            this.postsActions = postsActions;
+            return Ok(postsActions.AddPost(filling));
         }
 
         [HttpGet("ShowPost")]
-        public ActionResult Index(int id)
+        public ActionResult Index(int id, MainPostsActions postsActions)
         {
-            //var init = new IPostDataBase();
-            return Ok(IPostDataBase.SendPost(id));
+            this.postsActions = postsActions;
+            return Ok(postsActions.GetPost(id));
+        }
+
+        [HttpGet("ShowPostsList")]
+        public ActionResult ShowPosts(MainPostsActions postsActions)
+        {
+            this.postsActions = postsActions;
+            return Ok(postsActions.GetPosts());
         }
     }
 }

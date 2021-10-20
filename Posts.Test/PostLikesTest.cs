@@ -16,8 +16,9 @@ namespace Posts.Test
         {
             //arrange
             var service = new IPostDataBase();
+            var action = new LikesActions();
             //act
-            var result = IPostDataBase.LikeInputCheck(id);
+            var result = action.LikeInputCheck(id);
             //assert
             Assert.IsTrue(result);
         }
@@ -28,8 +29,9 @@ namespace Posts.Test
         {
             //arrange
             var service = new IPostDataBase();
+            var action = new LikesActions();
             //act
-            var result = IPostDataBase.LikeInputCheck(id);
+            var result = action.LikeInputCheck(id);
             //assert
             Assert.IsFalse(result);
         }

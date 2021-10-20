@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "mdcEkpW3u16sbAnoUwnisoZyDdOZJFCEPQ89lwa5b6Q+vomyzzx5P/yCOZT09D2Gc52cF7Yi5zHP/5LrtBqm0w==",
+  "dgSpecHash": "UO0N0bUqRtWKFkAUPFNpss2dl+iNmTqhHKHHrDpeI+QkifGG5r3SEs0RYPacHqqMQxut6VL0ENh0ZnXt+Y9RHQ==",
   "success": true,
   "projectFilePath": "C:\\Visual_Projects\\ELEKScamp\\Posts.Test\\Posts.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\musat\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
+    "C:\\Users\\musat\\.nuget\\packages\\fluentassertions\\6.1.0\\fluentassertions.6.1.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",
@@ -32,6 +33,7 @@
     "C:\\Users\\musat\\.nuget\\packages\\system.componentmodel.eventbasedasync\\4.3.0\\system.componentmodel.eventbasedasync.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.componentmodel.primitives\\4.3.0\\system.componentmodel.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.componentmodel.typeconverter\\4.3.0\\system.componentmodel.typeconverter.4.3.0.nupkg.sha512",
+    "C:\\Users\\musat\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.0\\system.configuration.configurationmanager.4.4.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.diagnostics.process\\4.3.0\\system.diagnostics.process.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.diagnostics.tools\\4.0.1\\system.diagnostics.tools.4.0.1.nupkg.sha512",
@@ -59,6 +61,7 @@
     "C:\\Users\\musat\\.nuget\\packages\\system.runtime.interopservices\\4.3.0\\system.runtime.interopservices.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.runtime.interopservices.runtimeinformation\\4.3.0\\system.runtime.interopservices.runtimeinformation.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.runtime.serialization.primitives\\4.1.1\\system.runtime.serialization.primitives.4.1.1.nupkg.sha512",
+    "C:\\Users\\musat\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.4.0\\system.security.cryptography.protecteddata.4.4.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.text.encoding.extensions\\4.3.0\\system.text.encoding.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.text.regularexpressions\\4.3.0\\system.text.regularexpressions.4.3.0.nupkg.sha512",
