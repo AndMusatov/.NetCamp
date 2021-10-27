@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using dotNet_TWITTER.Applications.Common.Models;
+using dotNet_TWITTER.Applications.Data;
+using dotNet_TWITTER.Domain.DTO;
 
-namespace dotNet_TWITTER.Applications.Data
+namespace dotNet_TWITTER.Domain.Events
 {
     public class UserActions
     {
@@ -33,6 +35,18 @@ namespace dotNet_TWITTER.Applications.Data
                 );
             IUserDataBase.SetUsers(Users);
             return "Input is Ok";
+        }
+
+        public string DeleteUser()
+        {
+            if (LoginStatusDTO.loginStatus.Status)
+            {
+                Users.RemoveAt(LoginStatusDTO.loginStatus.LoginUser.UserId);
+                LoginStatusDTO.loginStatus.LoginUser = null;
+                LoginStatusDTO.loginStatus.Status = false;
+                return "Ok";
+            }
+            return "You aren`t logined";
         }
 
         public List<User> GetAllUsers()

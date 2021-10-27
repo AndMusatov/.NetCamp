@@ -4,23 +4,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using dotNet_TWITTER.Applications.Data;
+using dotNet_TWITTER.Domain.Events;
 
 namespace dotNet_TWITTER.Controllers
 {
     public class PostLikesController : ControllerBase
     {
-        private LikesActions likesActions;
+        private LikesActions likesActions = new LikesActions();
         [HttpPost("AddPostLikes")]
-        public ActionResult AddPostLike(int id, LikesActions likesActions)
+        public ActionResult AddPostLike(int id)
         {
-            this.likesActions = likesActions;
             return Ok(likesActions.AddLike(id));
         }
         [HttpGet("ShowPostLikes")]
-        public ActionResult ShowPostLikes(int id, LikesActions likesActions)
+        public ActionResult ShowPostLikes(int id)
         {
-            this.likesActions = likesActions;
             return Ok(likesActions.PostLikesQuantity(id));
         }
     }

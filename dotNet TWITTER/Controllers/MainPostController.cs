@@ -1,41 +1,32 @@
-using dotNet_TWITTER.Applications.Data;
 using dotNet_TWITTER.Applications.Common.Models;
-using dotNet_TWITTER.WEB_UI;
+using dotNet_TWITTER.Domain.Events;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using MediatR;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace dotNet_TWITTER.WEB_UI.Controllers
 {
     public class MainPostController : Controller
     {
-        private MainPostsActions postsActions;
+        private MainPostsActions postsActions = new MainPostsActions();
 
         [HttpPost("PostCreation")]
-        public ActionResult CreatePost(string filling, MainPostsActions postsActions)
+        public ActionResult CreatePost(string filling)
         {
-            this.postsActions = postsActions;
-            return Ok(postsActions.AddPost(filling));
+            postsActions.AddPost(filling);
+            return Ok();
         }
 
         [HttpGet("ShowPost")]
-        public ActionResult Index(int id, MainPostsActions postsActions)
+        public ActionResult ShowPost(int id)
         {
-            this.postsActions = postsActions;
-            return Ok(postsActions.GetPost(id));
+            Post post = postsActions.GetPost(id);
+            return Ok(post);
         }
 
-        [HttpGet("ShowPostsList")]
-        public ActionResult ShowPosts(MainPostsActions postsActions)
+        [HttpDelete("DeletePost")]
+        public ActionResult DeletePost(int id)
         {
-            this.postsActions = postsActions;
-            return Ok(postsActions.GetPosts());
+            postsActions.DeletePost(id);
+            return Ok();
         }
     }
 }

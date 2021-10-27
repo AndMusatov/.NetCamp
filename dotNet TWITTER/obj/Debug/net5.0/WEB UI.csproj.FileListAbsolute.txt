@@ -78,3 +78,4 @@ C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Applications.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Domain.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Applications.pdb
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Domain.pdb
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\obj\Debug\net5.0\WEB UI.MvcApplicationPartsAssemblyInfo.cs

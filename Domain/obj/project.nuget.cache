@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "VOI15iUrCNcKLJ34O9DLVAs+tfDKm/pFbCLqN3wen6YQI1rx5ZDWZARe2zvuzOZdOzQkpfMTDt9/ugIaiAm+Vw==",
+  "dgSpecHash": "VACmJX4N67wxQLGVDpOvKufYbUBy5LM79pNxA17G2twDzWR/p2T1n86/3mNXjlUpHZQdcZH5j+t/ryEBSpYEbA==",
   "success": true,
   "projectFilePath": "C:\\Visual_Projects\\ELEKScamp\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\musat\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\musat\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
+    "C:\\Users\\musat\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.0.0\\microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
