@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using dotNet_TWITTER.Applications.Common.Models;
 
-namespace dotNet_TWITTER.Applications.Data
+namespace dotNet_TWITTER.Domain.DTO
 {
     public class LoginStatusDTO
     {

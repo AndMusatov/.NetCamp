@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using dotNet_TWITTER.Applications.Common.Models;
+using dotNet_TWITTER.Applications.Data;
+using dotNet_TWITTER.Domain.DTO;
 
-namespace dotNet_TWITTER.Applications.Data
+namespace dotNet_TWITTER.Domain.Events
 {
     public class MainPostsActions
     {
@@ -18,16 +20,7 @@ namespace dotNet_TWITTER.Applications.Data
 
         public Post GetPost(int i)
         {
-            if (Posts.Count >= i)
-            {
-                return Posts[i];
-            }
-            return null;
-        }
-
-        public List<Post> GetPosts()
-        {
-            return Posts;
+            return Posts[i];
         }
 
         public bool PostInitCheck()
@@ -73,6 +66,11 @@ namespace dotNet_TWITTER.Applications.Data
             {
                 return "You aren`t logined";
             }
+        }
+
+        public void DeletePost(int postId)
+        {
+            Posts.RemoveAt(postId);
         }
 
         public bool CanCreatePost(string filling)

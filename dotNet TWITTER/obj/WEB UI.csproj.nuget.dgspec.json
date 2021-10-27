@@ -91,7 +91,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Visual_Projects\\ELEKScamp\\Applications\\Applications.csproj": {
+                "projectPath": "C:\\Visual_Projects\\ELEKScamp\\Applications\\Applications.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

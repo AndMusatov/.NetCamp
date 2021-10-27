@@ -1,11 +1,8 @@
-using System;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using dotNet_TWITTER.Applications.Common.Models;
-using Microsoft.EntityFrameworkCore;
 using dotNet_TWITTER.Applications.Data;
+using dotNet_TWITTER.Domain.Events;
+using dotNet_TWITTER.Domain.DTO;
 
 namespace dotNet_TWITTER.WEB_UI
 {

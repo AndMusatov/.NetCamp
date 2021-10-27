@@ -6,12 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "Domain/1.0.0": {
+      "Applications/1.0.0": {
         "dependencies": {
-          "Applications": "1.0.0"
+          "MediatR": "9.0.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "9.0.0"
         },
         "runtime": {
-          "Domain.dll": {}
+          "Applications.dll": {}
         }
       },
       "MediatR/9.0.0": {
@@ -41,20 +42,11 @@
             "fileVersion": "2.0.0.17205"
           }
         }
-      },
-      "Applications/1.0.0": {
-        "dependencies": {
-          "MediatR": "9.0.0",
-          "MediatR.Extensions.Microsoft.DependencyInjection": "9.0.0"
-        },
-        "runtime": {
-          "Applications.dll": {}
-        }
       }
     }
   },
   "libraries": {
-    "Domain/1.0.0": {
+    "Applications/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -79,11 +71,6 @@
       "sha512": "sha512-eUdJ0Q/GfVyUJc0Jal5L1QZLceL78pvEM9wEKcHeI24KorqMDoVX+gWsMGLulQMfOwsUaPtkpQM2pFERTzSfSg==",
       "path": "microsoft.extensions.dependencyinjection.abstractions/2.0.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512"
-    },
-    "Applications/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }

@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using dotNet_TWITTER.Applications.Common.Models;
+using dotNet_TWITTER.Applications.Data;
+using dotNet_TWITTER.Domain.DTO;
 
-namespace dotNet_TWITTER.Applications.Data
+namespace dotNet_TWITTER.Domain.Events
 {
     public class CommentsActions
     {
