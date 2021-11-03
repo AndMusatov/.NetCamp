@@ -11,7 +11,7 @@ namespace dotNet_TWITTER.Controllers
     {
         private LoginActions loginActions = new LoginActions();
 
-        [HttpPost("Login")]
+        [HttpPost("OldLogin")]
         public ActionResult Login(string userName, string password)
         {
             return Ok(loginActions.Login(userName, password));

@@ -12,13 +12,13 @@ namespace dotNet_TWITTER.Controllers
             return Ok(userActions.GetUser(id));
         }
 
-        [HttpPost("Registration")]
+        [HttpPost("OldRegistration")]
         public ActionResult Registration(string userName, string password, string mailAdress)
         {
             return Ok(userActions.NewUser(userName, password, mailAdress));
         }
 
-        [HttpGet("GetAllUsers")]
+        [HttpGet("OldGetAllUsers")]
         public ActionResult GetAllUsers()
         {
             return Ok(userActions.GetAllUsers());

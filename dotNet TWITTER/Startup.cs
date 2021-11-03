@@ -14,6 +14,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.Extensions.Logging;
+using dotNet_TWITTER.Applications.Data;
 
 namespace dotNet_TWITTER.WEB_UI
 {
@@ -31,7 +34,15 @@ namespace dotNet_TWITTER.WEB_UI
         {
             services.AddRazorPages();
             string connection = Configuration.GetConnectionString("DefaultConnection");
-  
+            services.AddDbContext<UserContext>(options =>
+                options.UseSqlServer(connection));
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options => //CookieAuthenticationOptions
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                });
+
             services.AddControllersWithViews();
             services.AddMvc();
             services.AddSwaggerGen(c =>
@@ -42,6 +53,7 @@ namespace dotNet_TWITTER.WEB_UI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        [Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

@@ -81,7 +81,7 @@ namespace dotNet_TWITTER.Domain.Events
                     CommentId = Posts[postId].Comments.Count,
                     CommentFilling = comment
                 });
-            IUserDataBase.SetUsersPosts(Posts, LoginStatusDTO.loginStatus.LoginUser.UserId);
+            IUserDataBase.SetUsersPosts(Posts, LoginStatusDTO.loginStatus.LoginUser.Id);
         }
     }
 }
