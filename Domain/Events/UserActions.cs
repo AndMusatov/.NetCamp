@@ -22,15 +22,15 @@ namespace dotNet_TWITTER.Domain.Events
             return Users[id];
         }
 
-        public string NewUser(string username, string password, string mailadress)
+        public string NewUser(string username, string password, string eMail)
         {
             Users.Add(
                 new User
                 {
-                    UserId = Users.Count(),
+                    Id = Users.Count(),
                     UserName = username,
                     Password = password,
-                    MailAdress = mailadress
+                    EMail= eMail
                 }
                 );
             IUserDataBase.SetUsers(Users);
@@ -41,7 +41,7 @@ namespace dotNet_TWITTER.Domain.Events
         {
             if (LoginStatusDTO.loginStatus.Status)
             {
-                Users.RemoveAt(LoginStatusDTO.loginStatus.LoginUser.UserId);
+                Users.RemoveAt(LoginStatusDTO.loginStatus.LoginUser.Id);
                 LoginStatusDTO.loginStatus.LoginUser = null;
                 LoginStatusDTO.loginStatus.Status = false;
                 return "Ok";

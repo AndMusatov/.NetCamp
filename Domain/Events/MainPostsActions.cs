@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using dotNet_TWITTER.Applications.Common.Models;
@@ -11,11 +12,12 @@ namespace dotNet_TWITTER.Domain.Events
 {
     public class MainPostsActions
     {
+        private UserContext _context;
         public List<Post> Posts = new List<Post>();
 
-        public MainPostsActions()
+        public MainPostsActions(UserContext context)
         {
-            Posts = IPostDataBase.GetPostsList();
+            _context = context;
         }
 
         public Post GetPost(int i)
@@ -37,35 +39,28 @@ namespace dotNet_TWITTER.Domain.Events
             return LoginStatusDTO.loginStatus.Status;
         }
 
-        public string AddPost(string filling)
+        public string AddPost(string filling, string userName)
         {
-            if (LoginStatusDTO.loginStatus.Status)
+            if (CanCreatePost(filling))
             {
-                if (LoginStatusDTO.loginStatus.LoginUser.UserPosts == null)
+                User user = _context.UsersDB.FirstOrDefault(u => u.UserName == userName);
+                if (user.UserPosts == null)
                 {
-                    LoginStatusDTO.loginStatus.LoginUser.UserPosts = new List<Post>();
+                    _context.UsersDB.FirstOrDefault(u => u.UserName == userName).UserPosts = new List<Post>();
                 }
-                if (CanCreatePost(filling))
+                _context.UsersDB.FirstOrDefault(u => u.UserName == userName).UserPosts.Add(
+                new Post
                 {
-                    Posts = LoginStatusDTO.loginStatus.LoginUser.UserPosts;
-                    Posts.Add(
-                    new Post
-                    {
-                        UserName = LoginStatusDTO.loginStatus.LoginUser.UserName,
-                        Id = Posts.Count,
-                        Date = DateTime.Now,
-                        Filling = filling
-                    }
-                    );
-                    IUserDataBase.SetUsersPosts(Posts, LoginStatusDTO.loginStatus.LoginUser.UserId);
-                    return "Input is Ok";
+                    UserName = "avc",
+                    Id = _context.UsersDB.FirstOrDefault(u => u.UserName == userName).UserPosts.Count,
+                    Date = DateTime.Now,
+                    Filling = filling
                 }
-                return "Input is wrong";
+                );
+                _context.SaveChangesAsync();
+                return ("Input is Ok");
             }
-            else
-            {
-                return "You aren`t logined";
-            }
+            return "Input is wrong";
         }
 
         public void DeletePost(int postId)

@@ -16,10 +16,10 @@ namespace dotNet_TWITTER.Applications.Data
             {
                 new User
                 {
-                    UserId = 0,
+                    Id = 0,
                     UserName = "User0",
                     Password = "1111",
-                    MailAdress = "user@mail.com",
+                    EMail = "user@mail.com",
                     UserPosts = IPostDataBase.GetPostsList()
                 }
             };

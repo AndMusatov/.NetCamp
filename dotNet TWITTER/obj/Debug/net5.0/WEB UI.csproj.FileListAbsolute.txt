@@ -11,11 +11,8 @@ C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\MediatR.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.dll
-C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.Bcl.HashCode.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -38,13 +35,6 @@ C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\System.IdentityMode
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\System.Runtime.Caching.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\System.Text.Encodings.Web.dll
-C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
-C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
-C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
-C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
-C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
-C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
-C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\obj\Debug\net5.0\WEB UI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\obj\Debug\net5.0\WEB UI.AssemblyInfoInputs.cache
@@ -79,3 +69,31 @@ C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Domain.dll
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Applications.pdb
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Domain.pdb
 C:\Visual_Projects\ELEKScamp\dotNet TWITTER\obj\Debug\net5.0\WEB UI.MvcApplicationPartsAssemblyInfo.cs
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Humanizer.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\EntityFramework.SqlServer.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\EntityFramework.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\System.CodeDom.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Visual_Projects\ELEKScamp\dotNet TWITTER\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
