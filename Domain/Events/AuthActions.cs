@@ -2,6 +2,7 @@
 using dotNet_TWITTER.Applications.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -40,6 +41,22 @@ namespace dotNet_TWITTER.Domain.Events
             if (user != null)
                 return user;
             return null;
+        }
+
+        public async Task<User> Login(string eMail, string password)
+        {
+            User user = await _context.UsersDB.FirstOrDefaultAsync(u => u.EMail == eMail && u.Password == password);
+            if (user != null)
+                return user;
+            return null;
+        }
+
+        public string DeleteUser(string userName)
+        {
+            User user = _context.UsersDB.FirstOrDefault(u => u.UserName == userName);
+            _context.UsersDB.Remove(user);
+            _context.SaveChanges();
+            return "User was deleted";
         }
     }
 }

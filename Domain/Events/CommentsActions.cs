@@ -5,52 +5,40 @@ using System.Text;
 using System.Threading.Tasks;
 using dotNet_TWITTER.Applications.Common.Models;
 using dotNet_TWITTER.Applications.Data;
-using dotNet_TWITTER.Domain.DTO;
 
 namespace dotNet_TWITTER.Domain.Events
 {
     public class CommentsActions
     {
-        public List<Post> Posts = new List<Post>();
-        public CommentsActions()
+        UserContext _context;
+        public CommentsActions(UserContext context)
         {
-            Posts = IPostDataBase.GetPostsList();
-        }
-
-        public Comment GetComment(int postId, int commentId)
-        {
-            return Posts[postId].Comments[commentId];
+            _context = context;
         }
 
         public List<Comment> GetComments(int postId)
         {
-            return Posts[postId].Comments;
+            var result = _context.Comment.Where(p => p.PostId == postId);
+            return result.ToList();
         }
 
-        public string AddComment(int postId, string commentStr)
+        public string AddComment(int postId, string commentStr, string userName)
         {
-            if (LoginStatusDTO.loginStatus.Status)
+            if (CommentsInputCheck(postId, commentStr))
             {
-                if (LoginStatusDTO.loginStatus.LoginUser.UserComments == null)
+                List<Comment> comments = new List<Comment>();
+                Post post = _context.Post.FirstOrDefault(p => p.PostId == postId);
+                _context.Comment.Add(new Comment
                 {
-                    LoginStatusDTO.loginStatus.LoginUser.UserComments = new List<Comment>();
+                    PostId = postId,
+                    UserName = userName,
+                    CommentFilling = commentStr
                 }
-                if (CommentsInputCheck(postId, commentStr))
-                {
-                    AddPostComment(postId, commentStr);
-                    LoginStatusDTO.loginStatus.LoginUser.UserComments.Add(new Comment
-                    {
-                        PostId = postId,
-                        UserName = LoginStatusDTO.loginStatus.LoginUser.UserName,
-                        CommentId = Posts[postId].Comments.Count,
-                        CommentFilling = commentStr
-                    }
-                    );
-                    return "Input is Ok";
-                }
-                return "Input is wrong";
+                );
+                _context.SaveChanges();
+                return "Input is Ok";
             }
-            return "You aren`t logined";
+            return "Input is wrong";
         }
 
         public bool CommentsInputCheck(int postId, string comment)
@@ -59,29 +47,19 @@ namespace dotNet_TWITTER.Domain.Events
             {
                 return false;
             }
-            if (Posts.Count <= postId)
+            if (_context.Post.Count() <= postId)
             {
                 return false;
             }
             return true;
         }
 
-        public void AddPostComment(int postId, string comment)
+        public string RemoveComment(string userName, int commentId, int postId)
         {
-            if (LoginStatusDTO.loginStatus.LoginUser.UserPosts == null)
-            {
-                LoginStatusDTO.loginStatus.LoginUser.UserPosts = new List<Post>();
-            }
-            Posts = LoginStatusDTO.loginStatus.LoginUser.UserPosts;
-            Posts[postId].Comments.Add(
-                new Comment
-                {
-                    PostId = postId,
-                    UserName = LoginStatusDTO.loginStatus.LoginUser.UserName,
-                    CommentId = Posts[postId].Comments.Count,
-                    CommentFilling = comment
-                });
-            IUserDataBase.SetUsersPosts(Posts, LoginStatusDTO.loginStatus.LoginUser.Id);
+            var comment = _context.Comment.Single(x => x.UserName == userName && x.PostId == postId && x.CommentId == commentId);
+            _context.Comment.Remove(comment);
+            _context.SaveChanges();
+            return "Cooment was removed";
         }
     }
 }
