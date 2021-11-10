@@ -10,39 +10,29 @@ namespace dotNet_TWITTER.Domain.Events
 {
     public class LikesActions
     {
-        public List<Post> Posts = new List<Post>();
-        public LikesActions()
+        UserContext _context;
+        public LikesActions(UserContext context)
         {
-            Posts = IPostDataBase.GetPostsList();
+            _context = context;
         }
 
-        public string AddLike(int postId)
+        public string LikeAction(int postId, string authUserName)
         {
-            if (LikeInputCheck(postId))
+            Post post = _context.Post.FirstOrDefault(p => p.PostId == postId);
+            if(post.Likes.Contains(authUserName))
             {
-                Posts[postId].Likes.Add("User");
-                IPostDataBase.SetPostsList(Posts);
-                return "Input is ok";
+                _context.Post.FirstOrDefault(p => p.PostId == postId).Likes.Remove(post.UserName);
+                _context.SaveChanges();
+                return "Like Removed";
             }
-            return "Wrong input Id";
+            _context.Post.FirstOrDefault(p => p.PostId == postId).Likes.Add(authUserName);
+            _context.SaveChanges();
+            return "Like add";
         }
 
         public int PostLikesQuantity(int postId)
         {
-            if (LikeInputCheck(postId))
-            {
-                return Posts[postId].Likes.Count;
-            }
-            return 0;
-        }
-
-        public bool LikeInputCheck(int postId)
-        {
-            if (postId >= Posts.Count)
-            {
-                return false;
-            }
-            return true;
+            return _context.Post.FirstOrDefault(p => p.PostId == postId).Likes.Count();
         }
     }
 }

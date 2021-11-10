@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using dotNet_TWITTER.Applications.Data;
 using dotNet_TWITTER.Domain.Events;
-using dotNet_TWITTER.Domain.DTO;
 
 namespace dotNet_TWITTER.WEB_UI
 {
@@ -10,11 +9,6 @@ namespace dotNet_TWITTER.WEB_UI
     {
         public static void Main(string[] args)
         {
-            var initDataBase = new IPostDataBase();
-            var initUsers = new IUserDataBase();
-            var initLogin = new LoginStatusDTO();
-            var initCommentsActions = new CommentsActions();
-            var initLikes = new LikesActions();
             var host = CreateHostBuilder(args).Build();
             host.Run();
         }

@@ -12,7 +12,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MediatR;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Logging;
@@ -40,8 +39,14 @@ namespace dotNet_TWITTER.WEB_UI
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => //CookieAuthenticationOptions
                 {
-                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/account/google-login");
+                })
+                .AddGoogle(options =>
+                {
+                    options.ClientId = "509701768206-mjf67s14dmdibokbaiqftvqpcn159gd6.apps.googleusercontent.com";
+                    options.ClientSecret = "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";
                 });
+                
 
             services.AddControllersWithViews();
             services.AddMvc();
@@ -49,7 +54,6 @@ namespace dotNet_TWITTER.WEB_UI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "dotNet_TWITTER", Version = "v1" });
             });
-            services.AddMediatR(typeof(Startup).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -90,8 +94,8 @@ namespace dotNet_TWITTER.WEB_UI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "PostCreation",
-                    pattern: "{controller=PostCreation}/{action=Index}/{id?}");
+                    name: "GoogleAuthController",
+                    pattern: "{controller=GoogleAuthController}/{action=GoogleLogin}");
             });
         }
     }
