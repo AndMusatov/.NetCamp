@@ -22,16 +22,17 @@ namespace dotNet_TWITTER.Domain.Events
             return result.ToList();
         }
 
-        public string AddComment(int postId, string commentStr, string userName)
+        public string AddComment(int postId, string commentStr, string eMail)
         {
             if (CommentsInputCheck(postId, commentStr))
             {
+                User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
                 List<Comment> comments = new List<Comment>();
                 Post post = _context.Post.FirstOrDefault(p => p.PostId == postId);
                 _context.Comment.Add(new Comment
                 {
                     PostId = postId,
-                    UserName = userName,
+                    UserName = user.UserName,
                     CommentFilling = commentStr
                 }
                 );
@@ -54,9 +55,10 @@ namespace dotNet_TWITTER.Domain.Events
             return true;
         }
 
-        public string RemoveComment(string userName, int commentId, int postId)
+        public string RemoveComment(string eMail, int commentId, int postId)
         {
-            var comment = _context.Comment.Single(x => x.UserName == userName && x.PostId == postId && x.CommentId == commentId);
+            User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
+            var comment = _context.Comment.Single(x => x.UserName == user.UserName && x.PostId == postId && x.CommentId == commentId);
             _context.Comment.Remove(comment);
             _context.SaveChanges();
             return "Cooment was removed";

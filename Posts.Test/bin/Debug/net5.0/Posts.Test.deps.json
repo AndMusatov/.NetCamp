@@ -9,6 +9,7 @@
       "Posts.Test/1.0.0": {
         "dependencies": {
           "Applications": "1.0.0",
+          "Domain": "1.0.0",
           "FluentAssertions": "6.1.0",
           "Microsoft.NET.Test.Sdk": "16.9.4",
           "NUnit": "3.13.1",
@@ -1480,6 +1481,14 @@
         "runtime": {
           "Applications.dll": {}
         }
+      },
+      "Domain/1.0.0": {
+        "dependencies": {
+          "Applications": "1.0.0"
+        },
+        "runtime": {
+          "Domain.dll": {}
+        }
       }
     }
   },
@@ -2295,6 +2304,11 @@
       "hashPath": "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
     },
     "Applications/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

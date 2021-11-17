@@ -2050,6 +2050,19 @@
         "runtime": {
           "bin/placeholder/Applications.dll": {}
         }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Applications": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
       }
     }
   },
@@ -7496,11 +7509,17 @@
       "type": "project",
       "path": "../Applications/Applications.csproj",
       "msbuildProject": "../Applications/Applications.csproj"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "Applications >= 1.0.0",
+      "Domain >= 1.0.0",
       "FluentAssertions >= 6.1.0",
       "Microsoft.NET.Test.Sdk >= 16.9.4",
       "NUnit >= 3.13.1",
@@ -7537,6 +7556,9 @@
           "projectReferences": {
             "C:\\Visual_Projects\\ELEKScamp\\Applications\\Applications.csproj": {
               "projectPath": "C:\\Visual_Projects\\ELEKScamp\\Applications\\Applications.csproj"
+            },
+            "C:\\Visual_Projects\\ELEKScamp\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Visual_Projects\\ELEKScamp\\Domain\\Domain.csproj"
             }
           }
         }

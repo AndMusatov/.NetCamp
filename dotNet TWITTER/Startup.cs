@@ -1,21 +1,18 @@
-using dotNet_TWITTER.Applications.Common.Models;
+using dotNet_TWITTER.Applications.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.Extensions.Logging;
-using dotNet_TWITTER.Applications.Data;
+using System;
+using Google.Apis.PeopleService;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Services;
+using Google.Apis.Util.Store;
+using Google.Apis.Auth.AspNetCore3;
 
 namespace dotNet_TWITTER.WEB_UI
 {
@@ -43,10 +40,26 @@ namespace dotNet_TWITTER.WEB_UI
                 })
                 .AddGoogle(options =>
                 {
-                    options.ClientId = "509701768206-mjf67s14dmdibokbaiqftvqpcn159gd6.apps.googleusercontent.com";
-                    options.ClientSecret = "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";
+                    options.ClientId = "313509358547-92nccm9u9epaq3khjghg5m4533qo09df.apps.googleusercontent.com";
+                    options.ClientSecret = "";
                 });
-                
+            services.AddAuthentication(o =>
+             {
+                 // This forces challenge results to be handled by Google OpenID Handler, so there's no
+                 // need to add an AccountController that emits challenges for Login.
+                 o.DefaultChallengeScheme = GoogleOpenIdConnectDefaults.AuthenticationScheme;
+                 // This forces forbid results to be handled by Google OpenID Handler, which checks if
+                 // extra scopes are required and does automatic incremental auth.
+                 o.DefaultForbidScheme = GoogleOpenIdConnectDefaults.AuthenticationScheme;
+                 // Default scheme that will handle everything else.
+                 // Once a user is authenticated, the OAuth2 token info is stored in cookies.
+                 o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+             });
+
+            services.AddControllersWithViews()
+                    .AddNewtonsoftJson(options =>
+                        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                            );
 
             services.AddControllersWithViews();
             services.AddMvc();
@@ -58,8 +71,9 @@ namespace dotNet_TWITTER.WEB_UI
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         [Obsolete]
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserContext dataContext)
         {
+            dataContext.Database.Migrate();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

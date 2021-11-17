@@ -35,6 +35,25 @@ namespace dotNet_TWITTER.Domain.Events
                 return null;
         }
 
+        public async Task<GoogleRegisterModel> Registration(GoogleRegisterModel registerModel, string eMail)
+        {
+            User user = await _context.UsersDB.FirstOrDefaultAsync(u => u.EMail == eMail);
+            if (user == null)
+            {
+                _context.UsersDB.Add(new User
+                {
+                    EMail = eMail,
+                    Password = registerModel.Password,
+                    UserName = registerModel.UserName,
+                });
+                await _context.SaveChangesAsync();
+
+                return registerModel;
+            }
+            else
+                return null;
+        }
+
         public async Task<User> Login(LoginModel loginModel)
         {
             User user = await _context.UsersDB.FirstOrDefaultAsync(u => u.EMail == loginModel.Email && u.Password == loginModel.Password);

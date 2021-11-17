@@ -20,38 +20,39 @@ namespace dotNet_TWITTER.Domain.Events
             _context = context;
         }
 
-        public List<Post> GetPosts(string userName)
+        public List<Post> GetPosts(string eMail)
         {
-            var result = _context.Post.Where(p => p.UserName == userName);
+            User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
+            var result = _context.Post.Where(p => p.UserName == user.UserName);
             return result.ToList();
         }
 
-        public string AddPost(string filling, string userName)
+        public Post AddPost(string filling, string eMail)
         {
             if (CanCreatePost(filling))
             {
-                User user = _context.UsersDB.FirstOrDefault(u => u.UserName == userName);
-                _context.Post.Add(
-                new Post
+                User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
+                Post post = new Post
                 {
                     UserName = user.UserName,
                     UserId = user.UserId,
                     Date = DateTime.Now,
-                    Filling = filling, 
+                    Filling = filling,
                     User = user
-                }
-                );
+                };
+                _context.Post.Add(post);
                 _context.SaveChanges();
-                return ("Input is Ok");
+                return post;
             }
-            return "Input is wrong";
+            return null;
         }
 
-        public string DeletePost(int postId, string userName)
+        public string DeletePost(int postId, string eMail)
         {
             if (PostExists(postId))
             {
-                var post = _context.Post.Single(x => x.UserName == userName && x.PostId == postId);
+                User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
+                var post = _context.Post.Single(x => x.UserName == user.UserName && x.PostId == postId);
                 _context.Post.Remove(post);
                 _context.SaveChanges();
                 return "This post is deleted";
@@ -83,10 +84,11 @@ namespace dotNet_TWITTER.Domain.Events
             return _context.Post.ToList();
         }
 
-        public List<Post> GetAllSubPosts(string authUserName)
+        public List<Post> GetAllSubPosts(string eMail)
         {
+            User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
             List<Post> posts = new List<Post>();
-            List<Subscription> subscriptions = _context.Subscriptions.Where(s => s.AuthUser == authUserName).ToList();
+            List<Subscription> subscriptions = _context.Subscriptions.Where(s => s.AuthUser == user.UserName).ToList();
             foreach (var sub in subscriptions)
             {
                 List<Post> authPosts = _context.Post.Where(p => p.UserName == sub.SubUser).ToList();
