@@ -30,6 +30,8 @@ namespace dotNet_TWITTER.Controllers
             {
                 AuthActions authActions = new AuthActions(_context);
                 await authActions.Registration(model);
+                User user = await authActions.Login(model.Email, model.Password);
+                await Authenticate(user);
                 return Ok(model);
             }
             return Ok("model isn`t valid");
@@ -42,7 +44,7 @@ namespace dotNet_TWITTER.Controllers
             {
                 AuthActions authActions = new AuthActions(_context);
                 User user = await authActions.Login(model);
-                await Authenticate(user); // аутентификация
+                await Authenticate(user);
             }
             return Ok(model);
         }
@@ -51,14 +53,14 @@ namespace dotNet_TWITTER.Controllers
         [HttpGet("GetAllUsers")]
         public IActionResult GetAllUsers()
         {
-            return Ok(_context.UsersDB);
+            return Json(_context.UsersDB.ToList());
         }
 
         [Authorize]
-        [HttpGet("LoginUserName")]
+        [HttpGet("LoginUserEMail")]
         public IActionResult GetLoginUsername()
         {
-            return Content(User.Identity.Name);
+            return Content(User.FindFirstValue(ClaimTypes.Email));
         }
 
         [Authorize]
@@ -66,14 +68,15 @@ namespace dotNet_TWITTER.Controllers
         public IActionResult DeleteUser()
         {
             AuthActions authActions = new AuthActions(_context);
-            return Ok(authActions.DeleteUser(User.Identity.Name));
+            return Ok(authActions.DeleteUser(User.FindFirstValue(ClaimTypes.Email)));
         }
 
         private async Task Authenticate(User user)
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, user.UserName),
+                new Claim(ClaimTypes.Email, user.EMail),
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.UserName)
             };
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType,
                ClaimsIdentity.DefaultRoleClaimType);

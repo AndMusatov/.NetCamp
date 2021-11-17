@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using dotNet_TWITTER.Applications.Data;
 using dotNet_TWITTER.Domain.Events;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace dotNet_TWITTER.Controllers
 {
@@ -22,21 +23,21 @@ namespace dotNet_TWITTER.Controllers
         public ActionResult Subscribe(string subUserName)
         {
             SubscriptionsActions subscriptionsActions = new SubscriptionsActions(_context);
-            return Ok(subscriptionsActions.AddSubscription(User.Identity.Name, subUserName));
+            return Ok(subscriptionsActions.AddSubscription(User.FindFirstValue(ClaimTypes.Email), subUserName));
         }
 
         [HttpGet("ShowSubscriptions")]
         public ActionResult ShowSubscribes()
         {
             SubscriptionsActions subscriptionsActions = new SubscriptionsActions(_context);
-            return Ok(subscriptionsActions.ShowUserSubscriptions(User.Identity.Name));
+            return Ok(subscriptionsActions.ShowUserSubscriptions(User.FindFirstValue(ClaimTypes.Email)));
         }
 
         [HttpDelete("RemoveSubscription")]
         public ActionResult RemoveSubscription(string subUserName)
         {
             SubscriptionsActions subscriptionsActions = new SubscriptionsActions(_context);
-            return Ok(subscriptionsActions.RemoveSubscription(User.Identity.Name, subUserName));
+            return Ok(subscriptionsActions.RemoveSubscription(User.FindFirstValue(ClaimTypes.Email), subUserName));
         }
     }
 }

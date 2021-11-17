@@ -152,3 +152,9 @@ C:\Visual_Projects\ELEKScamp\Posts.Test\bin\Debug\net5.0\runtimes\unix\lib\netco
 C:\Visual_Projects\ELEKScamp\Posts.Test\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Visual_Projects\ELEKScamp\Posts.Test\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Visual_Projects\ELEKScamp\Posts.Test\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Visual_Projects\ELEKScamp\Posts.Test\bin\Debug\net5.0\Domain.deps.json
+C:\Visual_Projects\ELEKScamp\Posts.Test\bin\Debug\net5.0\Domain.runtimeconfig.json
+C:\Visual_Projects\ELEKScamp\Posts.Test\bin\Debug\net5.0\Domain.runtimeconfig.dev.json
+C:\Visual_Projects\ELEKScamp\Posts.Test\bin\Debug\net5.0\Domain.exe
+C:\Visual_Projects\ELEKScamp\Posts.Test\bin\Debug\net5.0\Domain.dll
+C:\Visual_Projects\ELEKScamp\Posts.Test\bin\Debug\net5.0\Domain.pdb

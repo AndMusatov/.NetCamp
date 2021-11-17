@@ -2,6 +2,7 @@
 using dotNet_TWITTER.Domain.Events;
 using Microsoft.AspNetCore.Authorization;
 using dotNet_TWITTER.Applications.Data;
+using System.Security.Claims;
 
 namespace dotNet_TWITTER.Controllers
 {
@@ -18,7 +19,7 @@ namespace dotNet_TWITTER.Controllers
         public ActionResult CreatePostComment(int id, string filling)
         {
             CommentsActions commentsActions = new CommentsActions(_context);
-            return Ok(commentsActions.AddComment(id, filling, User.Identity.Name));
+            return Ok(commentsActions.AddComment(id, filling, User.FindFirstValue(ClaimTypes.Email)));
         }
 
         [Authorize]
@@ -26,7 +27,7 @@ namespace dotNet_TWITTER.Controllers
         public ActionResult DeletePostComment(int postId, int commentId)
         {
             CommentsActions commentsActions = new CommentsActions(_context);
-            return Ok(commentsActions.RemoveComment(User.Identity.Name, postId, commentId));
+            return Ok(commentsActions.RemoveComment(User.FindFirstValue(ClaimTypes.Email), postId, commentId));
         }
 
         [HttpGet("ShowPostComments")]

@@ -1,15 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Google;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using dotNet_TWITTER.Applications.Common.Models;
 using System.Security.Claims;
-using AspNet.Security.OpenIdConnect.Primitives;
+using System.Threading.Tasks;
+using dotNet_TWITTER.Applications.Common.Models;
+using dotNet_TWITTER.Applications.Data;
+using dotNet_TWITTER.Domain.Events;
+
 
 namespace dotNet_TWITTER.Controllers
 {
@@ -17,6 +17,11 @@ namespace dotNet_TWITTER.Controllers
     [Route("account")]
     public class GoogleAuthController : Controller
     {
+        private UserContext _context;
+        public GoogleAuthController(UserContext context)
+        {
+            _context = context;
+        }
         [HttpGet]
         [Route("google-login")]
         public ActionResult GoogleLogin()
@@ -36,26 +41,21 @@ namespace dotNet_TWITTER.Controllers
                 {
                     claim.Value
                 });
-            return Ok(claims);
+            return Json(claims);
         }
 
-        /*[HttpGet]
+        [HttpPost]
         [Route("google-register")]
-        public async Task<ActionResult> GoogleRegistration(GoogleRegisterModel googleRegisterModel)
+        public async Task<IActionResult> GoogleRegistration(GoogleRegisterModel googleRegisterModel)
         {
+            if (ModelState.IsValid)
+            {
+                AuthActions authActions = new AuthActions(_context);
+                await authActions.Registration(googleRegisterModel, User.FindFirstValue(ClaimTypes.Email));
+                return Ok("Registration is ok");
+            }
 
-            return Json();
-        }*/
-
-        /*private async Task Authenticate()
-        {
-            /*var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            var claims = new List<Claim>();
-            claims.Add(new Claim(OpenIdConnectConstants.Claims.Email);
-
-            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType,
-               ClaimsIdentity.DefaultRoleClaimType);
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
-        }*/
+            return Ok("Wrong model");
+        }
     }
 }

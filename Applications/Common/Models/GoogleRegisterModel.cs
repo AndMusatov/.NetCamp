@@ -9,6 +9,7 @@ namespace dotNet_TWITTER.Applications.Common.Models
 {
     public class GoogleRegisterModel
     {
+
         [Required(ErrorMessage = "Не указан Username")]
         public string UserName { get; set; }
 

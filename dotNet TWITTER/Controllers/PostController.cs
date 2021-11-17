@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 
 namespace dotNet_TWITTER.WEB_UI.Controllers
 {
@@ -30,7 +31,7 @@ namespace dotNet_TWITTER.WEB_UI.Controllers
         public ActionResult CreatePost(string filling)
         {
             PostsActions postsActions = new PostsActions(_context);
-            return Ok(postsActions.AddPost(filling, User.Identity.Name));
+            return Ok(postsActions.AddPost(filling, User.FindFirstValue(ClaimTypes.Email)));
         }
 
         [Authorize]
@@ -38,7 +39,7 @@ namespace dotNet_TWITTER.WEB_UI.Controllers
         public ActionResult ShowAuthUserPosts()
         {
             PostsActions postsActions = new PostsActions(_context);
-            return Ok(postsActions.GetPosts(User.Identity.Name));
+            return Ok(postsActions.GetPosts(User.FindFirstValue(ClaimTypes.Email)));
         }
 
         [Authorize]
@@ -46,7 +47,7 @@ namespace dotNet_TWITTER.WEB_UI.Controllers
         public ActionResult ShowSubPosts()
         {
             PostsActions postsActions = new PostsActions(_context);
-            return Ok(postsActions.GetAllSubPosts(User.Identity.Name));
+            return Ok(postsActions.GetAllSubPosts(User.FindFirstValue(ClaimTypes.Email)));
         }
 
         [Authorize]
@@ -54,7 +55,7 @@ namespace dotNet_TWITTER.WEB_UI.Controllers
         public ActionResult DeleteAuthUserPost(int id)
         {
             PostsActions postsActions = new PostsActions(_context);
-            return Ok(postsActions.DeletePost(id, User.Identity.Name));
+            return Ok(postsActions.DeletePost(id, User.FindFirstValue(ClaimTypes.Email)));
         }
     }
 }
