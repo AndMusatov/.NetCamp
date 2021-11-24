@@ -5,21 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using dotNet_TWITTER.Applications.Data;
 using dotNet_TWITTER.Applications.Common.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace dotNet_TWITTER.Domain.Events
 {
     public class SubscriptionsActions
     {
         private UserContext _context;
-        public SubscriptionsActions(UserContext context)
+        private readonly UserManager<User> _userManager;
+        public SubscriptionsActions(UserContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
-        public string AddSubscription(string eMail, string subUserName)
+        public async Task<string> AddSubscription(string userId, string subUserName)
         {
-            User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
-            User userSub = _context.UsersDB.FirstOrDefault(u => u.UserName == user.UserName);
+            User user = await _userManager.FindByIdAsync(userId);
+            User userSub = await _userManager.FindByNameAsync(subUserName);
             List<Subscription> subscriptions = _context.Subscriptions.Where(s => s.AuthUser == user.UserName).ToList();
             if (subscriptions.Find(s => s.SubUser == subUserName) != null)
             {
@@ -28,27 +31,27 @@ namespace dotNet_TWITTER.Domain.Events
             _context.Subscriptions.Add(
                 new Subscription
                 {
-                    UserId = user.UserId,
+                    SubscriptionId = Guid.NewGuid().ToString("N"),
+                    userId = user.Id,
                     AuthUser = user.UserName,
-                    SubUser = subUserName
+                    SubUser = subUserName,
+                    user = user
                 }
                 );
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return "Subscriped";
         }
 
-        public List<Subscription> ShowUserSubscriptions(string eMail)
+        public List<Subscription> ShowUserSubscriptions(string userName)
         {
-            User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
-            return _context.Subscriptions.Where(s => s.AuthUser == eMail).ToList();
+            return _context.Subscriptions.Where(s => s.AuthUser == userName).ToList();
         }
 
-        public string RemoveSubscription(string eMail, string subUserName)
+        public async Task<string> RemoveSubscription(string userName, string subUserName)
         {
-            User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
-            var sub = _context.Subscriptions.FirstOrDefault(x => x.AuthUser == eMail && x.SubUser == subUserName);
+            var sub = _context.Subscriptions.FirstOrDefault(x => x.AuthUser == userName && x.SubUser == subUserName);
             _context.Subscriptions.Remove(sub);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return "Subscription was removed";
         }
     }

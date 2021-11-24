@@ -1,14 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
 
 namespace dotNet_TWITTER.Applications.Common.Models
 {
-    public class User
+    public class User : IdentityUser
     {
         public static object Identity { get; set; }
-        public int UserId { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public string EMail { get; set; }
         public List<Subscription> Subscriptions { get; set; }
         public List<Post> UserPosts { get; set; }
         public List<Comment> UserComments { get; set; }

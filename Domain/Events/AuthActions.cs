@@ -1,5 +1,6 @@
 ﻿using dotNet_TWITTER.Applications.Common.Models;
 using dotNet_TWITTER.Applications.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,72 +11,40 @@ namespace dotNet_TWITTER.Domain.Events
 {
     public class AuthActions
     {
-        private UserContext _context;
-        public AuthActions(UserContext context)
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
+        public AuthActions(UserManager<User> userManager, SignInManager<User> signInManager)
         {
-            _context = context;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
-        public async Task<RegisterModel> Registration(RegisterModel registerModel)
+        public async Task<object> Registration(RegisterModel registerModel)
         {
-            User user = await _context.UsersDB.FirstOrDefaultAsync(u => u.EMail == registerModel.Email);
-            if (user == null)
+            User user = new User { Email = registerModel.Email, UserName = registerModel.UserName };
+            var result = await _userManager.CreateAsync(user, registerModel.Password);
+            if (result.Succeeded)
             {
-                _context.UsersDB.Add(new User
-                {
-                    EMail = registerModel.Email,
-                    Password = registerModel.Password,
-                    UserName = registerModel.UserName,
-                });
-                await _context.SaveChangesAsync();
-
-                return registerModel;
+                await _signInManager.SignInAsync(user, false);
+                return "Registration is done";
             }
             else
-                return null;
-        }
-
-        public async Task<GoogleRegisterModel> Registration(GoogleRegisterModel registerModel, string eMail)
-        {
-            User user = await _context.UsersDB.FirstOrDefaultAsync(u => u.EMail == eMail);
-            if (user == null)
             {
-                _context.UsersDB.Add(new User
-                {
-                    EMail = eMail,
-                    Password = registerModel.Password,
-                    UserName = registerModel.UserName,
-                });
-                await _context.SaveChangesAsync();
-
-                return registerModel;
+                return result;
             }
-            else
-                return null;
         }
 
-        public async Task<User> Login(LoginModel loginModel)
+        public async Task<object> Login(LoginModel loginModel)
         {
-            User user = await _context.UsersDB.FirstOrDefaultAsync(u => u.EMail == loginModel.Email && u.Password == loginModel.Password);
-            if (user != null)
-                return user;
-            return null;
+            var result = await _signInManager.PasswordSignInAsync(loginModel.UserName, loginModel.Password, false, false);
+            return result;
         }
 
-        public async Task<User> Login(string eMail, string password)
+        public async Task<object> DeleteUser(string userId)
         {
-            User user = await _context.UsersDB.FirstOrDefaultAsync(u => u.EMail == eMail && u.Password == password);
-            if (user != null)
-                return user;
-            return null;
-        }
-
-        public string DeleteUser(string userName)
-        {
-            User user = _context.UsersDB.FirstOrDefault(u => u.UserName == userName);
-            _context.UsersDB.Remove(user);
-            _context.SaveChanges();
-            return "User was deleted";
+            User user = await _userManager.FindByIdAsync(userId);
+            var result = await _userManager.DeleteAsync(user);
+            return result;
         }
     }
 }

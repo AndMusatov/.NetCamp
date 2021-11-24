@@ -1,12 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using dotNet_TWITTER.Applications.Common.Models;
-using System.Linq;
+﻿using dotNet_TWITTER.Applications.Common.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace dotNet_TWITTER.Applications.Data
 {
-    public class UserContext : DbContext
+    public class UserContext : IdentityDbContext<User>
     {
-        public DbSet<User> UsersDB { get; set; }
         public DbSet<Post> Post { get; set; }
         public DbSet<Comment> Comment { get; set; }
         public DbSet<Subscription> Subscriptions { get; set; }

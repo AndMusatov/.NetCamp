@@ -22,7 +22,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Applications\Applications.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
-    <ProjectReference Include="..\dotNet TWITTER\WEB UI.csproj" />
+    <ProjectReference Include="..\dotNet TWITTER\WEB_UI.csproj" />
+    <ProjectReference Include="..\dotNet_TWITTER\WEB_UI.csproj" />
   </ItemGroup>
 
 </Project>

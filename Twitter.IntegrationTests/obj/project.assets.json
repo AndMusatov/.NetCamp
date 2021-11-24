@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "Bogus/33.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Bogus.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Bogus.dll": {}
+        }
+      },
       "Castle.Core/4.4.0": {
         "type": "package",
         "dependencies": {
@@ -214,6 +223,18 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Microsoft.AspNetCore.Authentication.Twitter/5.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Twitter.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Twitter.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Authorization/3.0.3": {
         "type": "package",
         "dependencies": {
@@ -391,11 +412,11 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Identity.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/5.0.11": {
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/5.0.12": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "5.0.11",
-          "Microsoft.Extensions.Identity.Stores": "5.0.11"
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.12",
+          "Microsoft.Extensions.Identity.Stores": "5.0.12"
         },
         "compile": {
           "lib/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
@@ -675,10 +696,10 @@
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/5.0.11": {
+      "Microsoft.EntityFrameworkCore.Relational/5.0.12": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "5.0.11",
+          "Microsoft.EntityFrameworkCore": "5.0.12",
           "Microsoft.Extensions.Configuration.Abstractions": "5.0.0"
         },
         "compile": {
@@ -1001,11 +1022,11 @@
           "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.dll": {}
         }
       },
-      "Microsoft.Extensions.Identity.Stores/5.0.11": {
+      "Microsoft.Extensions.Identity.Stores/5.0.12": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Caching.Abstractions": "5.0.0",
-          "Microsoft.Extensions.Identity.Core": "5.0.11",
+          "Microsoft.Extensions.Identity.Core": "5.0.12",
           "Microsoft.Extensions.Logging": "5.0.0"
         },
         "compile": {
@@ -3640,6 +3661,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11"
         },
         "compile": {
@@ -3653,7 +3675,10 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Applications": "1.0.0"
+          "Applications": "1.0.0",
+          "Bogus": "33.1.1",
+          "Microsoft.AspNetCore.Identity": "2.2.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.12"
         },
         "compile": {
           "bin/placeholder/Domain.dll": {}
@@ -3662,7 +3687,7 @@
           "bin/placeholder/Domain.dll": {}
         }
       },
-      "WEB UI/1.0.0": {
+      "WEB_UI/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
@@ -3673,13 +3698,11 @@
           "Google.Apis.Auth.AspNetCore3": "1.55.0",
           "Google.Apis.PeopleService.v1": "1.55.0.2437",
           "Microsoft.AspNetCore.Authentication.Google": "5.0.12",
+          "Microsoft.AspNetCore.Authentication.Twitter": "5.0.12",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "5.0.11",
-          "Microsoft.AspNetCore.Identity": "2.2.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.11",
           "Microsoft.AspNetCore.Identity.UI": "5.0.11",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.12",
-          "Microsoft.EntityFrameworkCore": "5.0.11",
-          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.11",
+          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11",
           "Microsoft.Extensions.Identity.Core": "6.0.0",
           "Swashbuckle.AspNetCore": "6.2.3",
@@ -3689,10 +3712,10 @@
           "System.Text.Encodings.Web": "5.0.1"
         },
         "compile": {
-          "bin/placeholder/WEB UI.dll": {}
+          "bin/placeholder/WEB_UI.dll": {}
         },
         "runtime": {
-          "bin/placeholder/WEB UI.dll": {}
+          "bin/placeholder/WEB_UI.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -3701,6 +3724,23 @@
     }
   },
   "libraries": {
+    "Bogus/33.1.1": {
+      "sha512": "k3zLOajCV2iaus75RFqtC3PhHfJHuP2/jTN5Yl1Gixr0jTzrKiufm6oovpn6Nhbjw/zr5CTIzYioUS6HRhEi1w==",
+      "type": "package",
+      "path": "bogus/33.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bogus.33.1.1.nupkg.sha512",
+        "bogus.nuspec",
+        "lib/net40/Bogus.dll",
+        "lib/net40/Bogus.xml",
+        "lib/netstandard1.3/Bogus.dll",
+        "lib/netstandard1.3/Bogus.xml",
+        "lib/netstandard2.0/Bogus.dll",
+        "lib/netstandard2.0/Bogus.xml"
+      ]
+    },
     "Castle.Core/4.4.0": {
       "sha512": "b5rRL5zeaau1y/5hIbI+6mGw3cwun16YjkHZnV9RRT5UyUIFsgLmNXJ0YnIN9p8Hw7K7AbG1q1UclQVU3DinAQ==",
       "type": "package",
@@ -4060,6 +4100,21 @@
         "microsoft.aspnetcore.authentication.openidconnect.nuspec"
       ]
     },
+    "Microsoft.AspNetCore.Authentication.Twitter/5.0.12": {
+      "sha512": "gHUiTng2P1H9trrQMZghJd7VzEVGwy+XmJ/LQK886oWzyWD/IDr2/z9FiK6zaKH/BSsolH1opSD92Vynjxw35w==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.twitter/5.0.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.Twitter.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Authentication.Twitter.xml",
+        "microsoft.aspnetcore.authentication.twitter.5.0.12.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.twitter.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Authorization/3.0.3": {
       "sha512": "4pL4KAgfHUeY6QBGudmL5XfegTxPbXIX2LHm40ZHcvmVQFFoCsKr+dcwVN710f0qQIYsS6QttsO3ZB2gFOTwtA==",
       "type": "package",
@@ -4246,10 +4301,10 @@
         "microsoft.aspnetcore.identity.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/5.0.11": {
-      "sha512": "jg3uDmnpDH4McVDVvfmOBSoaWjrGl+yWnsgbCfIvJV887wIG/3oFEYTpqFyaLh31Q5hOsJ2XwcVVJKxpDqBUzA==",
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/5.0.12": {
+      "sha512": "2eIJAGT+Fal2QAQK0mDmIRUOonXhVuY2I8qthHD9KUkzfDI0JSuZNPfa3EHR9r5fbSiPO9+bPiocy4vw9UgcrQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.identity.entityframeworkcore/5.0.11",
+      "path": "microsoft.aspnetcore.identity.entityframeworkcore/5.0.12",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4259,7 +4314,7 @@
         "lib/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml",
         "lib/netstandard2.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll",
         "lib/netstandard2.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml",
-        "microsoft.aspnetcore.identity.entityframeworkcore.5.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.identity.entityframeworkcore.5.0.12.nupkg.sha512",
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
@@ -4698,17 +4753,17 @@
         "microsoft.entityframeworkcore.inmemory.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/5.0.11": {
-      "sha512": "6JLLJbi5Rh2LicrGi7nnhbmkQGCKi72uhjlAY/ozJr6cJdHOaMCUeWfglgrXUwvA5C+oE814eOxjeTdEF9oTyQ==",
+    "Microsoft.EntityFrameworkCore.Relational/5.0.12": {
+      "sha512": "Bt+PYQWb19ajOxkyXp2HHwyyAi7JJnaAZK3DTvh4254cGLJTLCIsa7zzgFEo1yXRh9a0a4voAeD7CaThbgH17Q==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/5.0.11",
+      "path": "microsoft.entityframeworkcore.relational/5.0.12",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.5.0.11.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.5.0.12.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
@@ -5179,10 +5234,10 @@
         "microsoft.extensions.identity.core.nuspec"
       ]
     },
-    "Microsoft.Extensions.Identity.Stores/5.0.11": {
-      "sha512": "PZ5rdwgviEPeVoOX09g/No4+JjcHTDtbUy6M+9i/8qApRG5tUxcvJs9T0/GW6e37Vzo6Zq1WeiJW1mc12v+U1Q==",
+    "Microsoft.Extensions.Identity.Stores/5.0.12": {
+      "sha512": "cfn1/2k7FkN7KG68ZK9WdKHvFdmzvgo0La3AP0JLeVMcdSVHY1PT0ORtU1EqNT7bQNb7StVn0T4/Escjufg6sg==",
       "type": "package",
-      "path": "microsoft.extensions.identity.stores/5.0.11",
+      "path": "microsoft.extensions.identity.stores/5.0.12",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5194,7 +5249,7 @@
         "lib/net5.0/Microsoft.Extensions.Identity.Stores.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.xml",
-        "microsoft.extensions.identity.stores.5.0.11.nupkg.sha512",
+        "microsoft.extensions.identity.stores.5.0.12.nupkg.sha512",
         "microsoft.extensions.identity.stores.nuspec"
       ]
     },
@@ -11557,10 +11612,10 @@
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
     },
-    "WEB UI/1.0.0": {
+    "WEB_UI/1.0.0": {
       "type": "project",
-      "path": "../dotNet TWITTER/WEB UI.csproj",
-      "msbuildProject": "../dotNet TWITTER/WEB UI.csproj"
+      "path": "../dotNet TWITTER/WEB_UI.csproj",
+      "msbuildProject": "../dotNet TWITTER/WEB_UI.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -11575,7 +11630,7 @@
       "Moq >= 4.16.1",
       "NUnit >= 3.13.1",
       "NUnit3TestAdapter >= 3.17.0",
-      "WEB UI >= 1.0.0",
+      "WEB_UI >= 1.0.0",
       "coverlet.collector >= 3.0.2",
       "xunit.extensibility.core >= 2.4.1"
     ]
@@ -11613,8 +11668,11 @@
             "C:\\Visual_Projects\\ELEKScamp\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Visual_Projects\\ELEKScamp\\Domain\\Domain.csproj"
             },
-            "C:\\Visual_Projects\\ELEKScamp\\dotNet TWITTER\\WEB UI.csproj": {
-              "projectPath": "C:\\Visual_Projects\\ELEKScamp\\dotNet TWITTER\\WEB UI.csproj"
+            "C:\\Visual_Projects\\ELEKScamp\\dotNet TWITTER\\WEB_UI.csproj": {
+              "projectPath": "C:\\Visual_Projects\\ELEKScamp\\dotNet TWITTER\\WEB_UI.csproj"
+            },
+            "C:\\Visual_Projects\\ELEKScamp\\dotNet_TWITTER\\WEB_UI.csproj": {
+              "projectPath": "C:\\Visual_Projects\\ELEKScamp\\dotNet_TWITTER\\WEB_UI.csproj"
             }
           }
         }

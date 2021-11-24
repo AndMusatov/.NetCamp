@@ -7,35 +7,38 @@ using System.Text;
 using System.Threading.Tasks;
 using dotNet_TWITTER.Applications.Common.Models;
 using dotNet_TWITTER.Applications.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace dotNet_TWITTER.Domain.Events
 {
     public class PostsActions
     {
+        private readonly UserManager<User> _userManager;
         private UserContext _context;
 
-        public PostsActions(UserContext context)
+        public PostsActions(UserContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
-        public List<Post> GetPosts(string eMail)
+        public List<Post> GetPosts(string userName)
         {
-            User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
-            var result = _context.Post.Where(p => p.UserName == user.UserName);
+            var result = _context.Post.Where(p => p.UserName == userName);
             return result.ToList();
         }
 
-        public Post AddPost(string filling, string eMail)
+        public async Task<Post> AddPost(string filling, string userId)
         {
+            User user = await _userManager.FindByIdAsync(userId);
             if (CanCreatePost(filling))
             {
-                User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
                 Post post = new Post
                 {
+                    PostId = Guid.NewGuid().ToString("N"),
                     UserName = user.UserName,
-                    UserId = user.UserId,
+                    UserId = user.Id,
                     Date = DateTime.Now,
                     Filling = filling,
                     User = user
@@ -47,16 +50,15 @@ namespace dotNet_TWITTER.Domain.Events
             return null;
         }
 
-        public string DeletePost(int postId, string eMail)
+        public async Task<string> DeletePost(string postId, string userName)
         {
-            if (PostExists(postId))
-            {
-                User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
-                var post = _context.Post.Single(x => x.UserName == user.UserName && x.PostId == postId);
+           if (PostExists(postId))
+           {
+                var post = _context.Post.Single(x => x.UserName == userName && x.PostId == postId);
                 _context.Post.Remove(post);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
                 return "This post is deleted";
-            }
+           }
             return "This post doesn`t exist";
         }
 
@@ -69,7 +71,7 @@ namespace dotNet_TWITTER.Domain.Events
             return true;
         }
 
-        public bool PostExists(int postId)
+        public bool PostExists(string postId)
         {
             Post post = _context.Post.FirstOrDefault(x => x.PostId == postId);
             if (post == null)
@@ -86,7 +88,7 @@ namespace dotNet_TWITTER.Domain.Events
 
         public List<Post> GetAllSubPosts(string eMail)
         {
-            User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
+            /*User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
             List<Post> posts = new List<Post>();
             List<Subscription> subscriptions = _context.Subscriptions.Where(s => s.AuthUser == user.UserName).ToList();
             foreach (var sub in subscriptions)
@@ -94,7 +96,9 @@ namespace dotNet_TWITTER.Domain.Events
                 List<Post> authPosts = _context.Post.Where(p => p.UserName == sub.SubUser).ToList();
                 posts.AddRange(authPosts);
             }
-            return posts;
+            posts.Sort((ps1, ps2) => DateTime.Compare(ps1.Date, ps2.Date));
+            return posts;*/
+            return null;
         }
     }
 }
