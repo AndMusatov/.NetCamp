@@ -43,6 +43,7 @@
           "Moq": "4.16.1",
           "NUnit": "3.13.1",
           "NUnit3TestAdapter": "3.17.0",
+          "WEB_UI": "1.0.0",
           "coverlet.collector": "3.0.2",
           "xunit.extensibility.core": "2.4.1",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
@@ -321,6 +322,17 @@
           "Twitter.IntegrationTests.dll": {}
         }
       },
+      "Bogus/33.1.1": {
+        "runtime": {
+          "lib/netstandard2.0/Bogus.dll": {
+            "assemblyVersion": "33.1.1.0",
+            "fileVersion": "33.1.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Bogus.dll": {}
+        }
+      },
       "Castle.Core/4.4.0": {
         "dependencies": {
           "NETStandard.Library": "2.0.0",
@@ -516,6 +528,17 @@
           "lib/netcoreapp3.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authentication.Twitter/5.0.12": {
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Twitter.dll": {
+            "assemblyVersion": "5.0.12.0",
+            "fileVersion": "5.0.1221.52401"
+          }
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Authentication.Twitter.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authorization/3.0.3": {
         "dependencies": {
           "Microsoft.AspNetCore.Metadata": "3.0.3",
@@ -564,7 +587,7 @@
       "Microsoft.AspNetCore.DataProtection.Abstractions/2.2.0": {},
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/5.0.11": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "5.0.11"
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.12"
         },
         "runtime": {
           "lib/net5.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {
@@ -625,15 +648,15 @@
           "Microsoft.Extensions.Identity.Core": "6.0.0"
         }
       },
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/5.0.11": {
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/5.0.12": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "5.0.11",
-          "Microsoft.Extensions.Identity.Stores": "5.0.11"
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.12",
+          "Microsoft.Extensions.Identity.Stores": "5.0.12"
         },
         "runtime": {
           "lib/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
-            "assemblyVersion": "5.0.11.0",
-            "fileVersion": "5.0.1121.47605"
+            "assemblyVersion": "5.0.12.0",
+            "fileVersion": "5.0.1221.52401"
           }
         },
         "compile": {
@@ -643,7 +666,7 @@
       "Microsoft.AspNetCore.Identity.UI/5.0.11": {
         "dependencies": {
           "Microsoft.Extensions.FileProviders.Embedded": "5.0.11",
-          "Microsoft.Extensions.Identity.Stores": "5.0.11"
+          "Microsoft.Extensions.Identity.Stores": "5.0.12"
         },
         "runtime": {
           "lib/net5.0/Microsoft.AspNetCore.Identity.UI.Views.V4.dll": {
@@ -889,15 +912,15 @@
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/5.0.11": {
+      "Microsoft.EntityFrameworkCore.Relational/5.0.12": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.12",
           "Microsoft.Extensions.Configuration.Abstractions": "5.0.0"
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll": {
-            "assemblyVersion": "5.0.11.0",
-            "fileVersion": "5.0.1121.47202"
+            "assemblyVersion": "5.0.12.0",
+            "fileVersion": "5.0.1221.51310"
           }
         },
         "compile": {
@@ -907,7 +930,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer/5.0.11": {
         "dependencies": {
           "Microsoft.Data.SqlClient": "2.0.1",
-          "Microsoft.EntityFrameworkCore.Relational": "5.0.11"
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.12"
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.SqlServer.dll": {
@@ -1100,7 +1123,7 @@
           "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.dll": {}
         }
       },
-      "Microsoft.Extensions.Identity.Stores/5.0.11": {
+      "Microsoft.Extensions.Identity.Stores/5.0.12": {
         "dependencies": {
           "Microsoft.Extensions.Caching.Abstractions": "5.0.0",
           "Microsoft.Extensions.Identity.Core": "6.0.0",
@@ -1109,7 +1132,7 @@
         "runtime": {
           "lib/net5.0/Microsoft.Extensions.Identity.Stores.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.1121.47605"
+            "fileVersion": "5.0.1221.52401"
           }
         },
         "compile": {
@@ -2863,6 +2886,7 @@
       },
       "Applications/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11"
         },
         "runtime": {
@@ -2874,44 +2898,16 @@
       },
       "Domain/1.0.0": {
         "dependencies": {
-          "Applications": "1.0.0"
-        },
-        "runtime": {
-          "Domain.dll": {}
-        },
-        "compile": {
-          "Domain.dll": {}
-        }
-      },
-      "WEB UI/1.0.0": {
-        "dependencies": {
           "Applications": "1.0.0",
-          "Domain": "1.0.0",
-          "EntityFramework": "6.4.4",
-          "Google.Apis.Auth": "1.55.0",
-          "Google.Apis.Auth.AspNetCore3": "1.55.0",
-          "Google.Apis.PeopleService.v1": "1.55.0.2437",
-          "Microsoft.AspNetCore.Authentication.Google": "5.0.12",
-          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "5.0.11",
+          "Bogus": "33.1.1",
           "Microsoft.AspNetCore.Identity": "2.2.0",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.11",
-          "Microsoft.AspNetCore.Identity.UI": "5.0.11",
-          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.12",
-          "Microsoft.EntityFrameworkCore": "5.0.12",
-          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.12",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11",
-          "Microsoft.Extensions.Identity.Core": "6.0.0",
-          "Swashbuckle.AspNetCore": "6.2.3",
-          "Swashbuckle.AspNetCore.Swagger": "6.2.3",
-          "System.Net.Http": "4.3.4",
-          "System.Net.Requests": "4.3.0",
-          "System.Text.Encodings.Web": "5.0.1"
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.12"
         },
         "runtime": {
-          "WEB UI.dll": {}
+          "Domain.dll": {}
         },
         "compile": {
-          "WEB UI.dll": {}
+          "Domain.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -4521,6 +4517,30 @@
           "WindowsBase.dll": {}
         },
         "compileOnly": true
+      },
+      "WEB_UI/1.0.0": {
+        "dependencies": {
+          "Applications": "1.0.0",
+          "Domain": "1.0.0",
+          "EntityFramework": "6.4.4",
+          "Google.Apis.Auth": "1.55.0",
+          "Google.Apis.Auth.AspNetCore3": "1.55.0",
+          "Google.Apis.PeopleService.v1": "1.55.0.2437",
+          "Microsoft.AspNetCore.Authentication.Google": "5.0.12",
+          "Microsoft.AspNetCore.Authentication.Twitter": "5.0.12",
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "5.0.11",
+          "Microsoft.AspNetCore.Identity.UI": "5.0.11",
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.12",
+          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.12",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11",
+          "Microsoft.Extensions.Identity.Core": "6.0.0",
+          "Swashbuckle.AspNetCore": "6.2.3",
+          "Swashbuckle.AspNetCore.Swagger": "6.2.3",
+          "System.Net.Http": "4.3.4",
+          "System.Net.Requests": "4.3.0",
+          "System.Text.Encodings.Web": "5.0.1"
+        },
+        "compileOnly": true
       }
     }
   },
@@ -4529,6 +4549,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Bogus/33.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-k3zLOajCV2iaus75RFqtC3PhHfJHuP2/jTN5Yl1Gixr0jTzrKiufm6oovpn6Nhbjw/zr5CTIzYioUS6HRhEi1w==",
+      "path": "bogus/33.1.1",
+      "hashPath": "bogus.33.1.1.nupkg.sha512"
     },
     "Castle.Core/4.4.0": {
       "type": "package",
@@ -4635,6 +4662,13 @@
       "path": "microsoft.aspnetcore.authentication.openidconnect/3.0.3",
       "hashPath": "microsoft.aspnetcore.authentication.openidconnect.3.0.3.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Authentication.Twitter/5.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gHUiTng2P1H9trrQMZghJd7VzEVGwy+XmJ/LQK886oWzyWD/IDr2/z9FiK6zaKH/BSsolH1opSD92Vynjxw35w==",
+      "path": "microsoft.aspnetcore.authentication.twitter/5.0.12",
+      "hashPath": "microsoft.aspnetcore.authentication.twitter.5.0.12.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Authorization/3.0.3": {
       "type": "package",
       "serviceable": true,
@@ -4726,12 +4760,12 @@
       "path": "microsoft.aspnetcore.identity/2.2.0",
       "hashPath": "microsoft.aspnetcore.identity.2.2.0.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/5.0.11": {
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/5.0.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jg3uDmnpDH4McVDVvfmOBSoaWjrGl+yWnsgbCfIvJV887wIG/3oFEYTpqFyaLh31Q5hOsJ2XwcVVJKxpDqBUzA==",
-      "path": "microsoft.aspnetcore.identity.entityframeworkcore/5.0.11",
-      "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.5.0.11.nupkg.sha512"
+      "sha512": "sha512-2eIJAGT+Fal2QAQK0mDmIRUOonXhVuY2I8qthHD9KUkzfDI0JSuZNPfa3EHR9r5fbSiPO9+bPiocy4vw9UgcrQ==",
+      "path": "microsoft.aspnetcore.identity.entityframeworkcore/5.0.12",
+      "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.5.0.12.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Identity.UI/5.0.11": {
       "type": "package",
@@ -4845,12 +4879,12 @@
       "path": "microsoft.entityframeworkcore.inmemory/5.0.12",
       "hashPath": "microsoft.entityframeworkcore.inmemory.5.0.12.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Relational/5.0.11": {
+    "Microsoft.EntityFrameworkCore.Relational/5.0.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6JLLJbi5Rh2LicrGi7nnhbmkQGCKi72uhjlAY/ozJr6cJdHOaMCUeWfglgrXUwvA5C+oE814eOxjeTdEF9oTyQ==",
-      "path": "microsoft.entityframeworkcore.relational/5.0.11",
-      "hashPath": "microsoft.entityframeworkcore.relational.5.0.11.nupkg.sha512"
+      "sha512": "sha512-Bt+PYQWb19ajOxkyXp2HHwyyAi7JJnaAZK3DTvh4254cGLJTLCIsa7zzgFEo1yXRh9a0a4voAeD7CaThbgH17Q==",
+      "path": "microsoft.entityframeworkcore.relational/5.0.12",
+      "hashPath": "microsoft.entityframeworkcore.relational.5.0.12.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.SqlServer/5.0.11": {
       "type": "package",
@@ -5006,12 +5040,12 @@
       "path": "microsoft.extensions.identity.core/6.0.0",
       "hashPath": "microsoft.extensions.identity.core.6.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.Identity.Stores/5.0.11": {
+    "Microsoft.Extensions.Identity.Stores/5.0.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PZ5rdwgviEPeVoOX09g/No4+JjcHTDtbUy6M+9i/8qApRG5tUxcvJs9T0/GW6e37Vzo6Zq1WeiJW1mc12v+U1Q==",
-      "path": "microsoft.extensions.identity.stores/5.0.11",
-      "hashPath": "microsoft.extensions.identity.stores.5.0.11.nupkg.sha512"
+      "sha512": "sha512-cfn1/2k7FkN7KG68ZK9WdKHvFdmzvgo0La3AP0JLeVMcdSVHY1PT0ORtU1EqNT7bQNb7StVn0T4/Escjufg6sg==",
+      "path": "microsoft.extensions.identity.stores/5.0.12",
+      "hashPath": "microsoft.extensions.identity.stores.5.0.12.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/6.0.0": {
       "type": "package",
@@ -6097,11 +6131,6 @@
       "sha512": ""
     },
     "Domain/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "WEB UI/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -7443,6 +7472,11 @@
     },
     "WindowsBase/4.0.0.0": {
       "type": "referenceassembly",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WEB_UI/1.0.0": {
+      "type": "project",
       "serviceable": false,
       "sha512": ""
     }

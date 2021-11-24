@@ -16,7 +16,7 @@ namespace dotNet_TWITTER.Domain.Events
             _context = context;
         }
 
-        public string LikeAction(int postId, string authUserName)
+        public string LikeAction(string postId, string authUserName)
         {
             Post post = _context.Post.FirstOrDefault(p => p.PostId == postId);
             if(post.Likes.Contains(authUserName))
@@ -30,7 +30,7 @@ namespace dotNet_TWITTER.Domain.Events
             return "Like add";
         }
 
-        public int PostLikesQuantity(int postId)
+        public int PostLikesQuantity(string postId)
         {
             return _context.Post.FirstOrDefault(p => p.PostId == postId).Likes.Count();
         }

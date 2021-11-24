@@ -60,6 +60,7 @@ namespace Twitter.IntegrationTests
 
         private async Task<string> GetJwtAsync()
         {
+            var response = await TestClient.PostAsJsonAsync(ApiRoutes.Identity.Register, new UserRegistrationRequest
             RegisterModel registerModel = new RegisterModel
             {
                 Email = "aaa@gmail.com",

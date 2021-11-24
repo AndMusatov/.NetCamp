@@ -130,7 +130,7 @@ namespace Twitter.IntegrationTests
             //Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             var returnedPost = response.As<Post>();
-            returnedPost.PostId.Should().Be(0);
+            returnedPost.PostId.Should().Be(null);
             returnedPost.Filling.Should().Be("test");
         }
     }
