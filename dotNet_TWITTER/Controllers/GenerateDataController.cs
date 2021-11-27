@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using dotNet_TWITTER.Domain.Events;
+﻿using dotNet_TWITTER.Applications.Common.Models;
 using dotNet_TWITTER.Applications.Data;
-using dotNet_TWITTER.Applications.Common.Models;
+using dotNet_TWITTER.Domain.Events;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace dotNet_TWITTER.Controllers
 {
@@ -25,6 +23,13 @@ namespace dotNet_TWITTER.Controllers
         {
             DataGenerator dataGenerator = new DataGenerator(_context, _userManager);
             return Ok(await dataGenerator.Generate(quantityOfUsers, quantityOfPostsForOneUser));
+        }
+
+        [HttpPost("CancellOperations")]
+        public IActionResult CancelOperation()
+        {
+            DataGenerator.CancellGeneration();
+            return Ok("Canceled");
         }
     }
 }

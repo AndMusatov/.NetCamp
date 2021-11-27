@@ -7,14 +7,17 @@ using System.Threading.Tasks;
 using Bogus;
 using dotNet_TWITTER.Applications.Common.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Threading;
 
 namespace dotNet_TWITTER.Domain.Events
 {
     public class DataGenerator
     {
         private readonly UserManager<User> _userManager;
-        //private readonly SignInManager<User> _signInManager;
         private UserContext _context;
+        private static CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
+        private static CancellationToken token;
+
         public DataGenerator(UserContext context, UserManager<User> userManager)
         {
             _context = context;
@@ -23,17 +26,24 @@ namespace dotNet_TWITTER.Domain.Events
 
         public async Task<object> Generate(int quantityOfUsers, int quantityOfPostsForOneUser)
         {
-            //Randomizer.Seed = new Random(8675319);
             var faker = new Faker();
+            token = cancelTokenSource.Token;
+
+            var userIds = _userManager.Users.Count();
 
             var testUsers = new Faker<User>()
                 .CustomInstantiator(f => new User())
+                .RuleFor(o => o.Id, f => (userIds++).ToString())
                 .RuleFor(u => u.UserName, (f, u) => f.Internet.UserName())
                 .RuleFor(u => u.Email, (f, u) => f.Internet.Email());
 
             List<IdentityResult> responses = new List<IdentityResult>(); 
             for (int i = 0; i < quantityOfUsers; i++)
             {
+                if (token.IsCancellationRequested)
+                {
+                    return responses;
+                }
                 User user = testUsers.Generate();
                 var response = await _userManager.CreateAsync(user, "!Aa1111");
                 responses.Add(response);
@@ -41,6 +51,10 @@ namespace dotNet_TWITTER.Domain.Events
                 for (int j = 0; j < quantityOfPostsForOneUser; j++)
                 {
                     posts.Add(GeneratePost(user, Guid.NewGuid().ToString("N")));
+                    if (token.IsCancellationRequested)
+                    {
+                        return responses;
+                    }
                 }
                 _context.Post.AddRange(posts);
                 await _context.SaveChangesAsync();
@@ -89,6 +103,12 @@ namespace dotNet_TWITTER.Domain.Events
                  .RuleFor(p => p.UserId, user.UserId);
              return testSubscriptions.Generate(1).ToList();*/
             return null;
+        }
+
+        public static void CancellGeneration()
+        {
+            token = cancelTokenSource.Token;
+            cancelTokenSource.Cancel(); 
         }
     }
 }

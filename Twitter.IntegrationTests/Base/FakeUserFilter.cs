@@ -6,17 +6,19 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Twitter.IntegrationTests
+namespace Twitter.IntegrationTests.Base
 {
     class FakeUserFilter : IAsyncActionFilter
     {
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
             context.HttpContext.User = new ClaimsPrincipal(new ClaimsIdentity(new List<Claim>
-            {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, "userTest"),
-                new Claim(ClaimTypes.Email, "test@gmail.com")
-            }));
+        {
+            new Claim(ClaimTypes.NameIdentifier, "123"),
+            new Claim(ClaimTypes.Name, "Test user"),
+            new Claim(ClaimTypes.Email, "test@example.com")
+        }));
+
             await next();
         }
     }
