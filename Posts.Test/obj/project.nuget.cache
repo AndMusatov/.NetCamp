@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wpe+KQCMmdCO0bcqYzUYThbJ7afR5d1KCD1LSxbAblPIpWIu4vTNFd8w7iBwRWWeCMEv+UTHtaS3Z0coICUFsw==",
+  "dgSpecHash": "yw3+/X78QAfR3a0KQ0PZhvC49/aecgZkqxLuc+MqysBfFAMkDOf5Nf/SZGRn1aIFxNxX/hciAM8haLqtTrtZ9Q==",
   "success": true,
   "projectFilePath": "C:\\Visual_Projects\\ELEKScamp\\Posts.Test\\Posts.Test.csproj",
   "expectedPackageFiles": [
@@ -147,7 +147,10 @@
     "C:\\Users\\musat\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
-    "C:\\Users\\musat\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\musat\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\musat\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\musat\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\musat\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

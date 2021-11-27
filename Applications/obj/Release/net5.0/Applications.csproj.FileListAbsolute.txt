@@ -67,3 +67,4 @@ C:\Visual_Projects\ELEKScamp\Applications\bin\Release\net5.0\Microsoft.AspNetCor
 C:\Visual_Projects\ELEKScamp\Applications\bin\Release\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Visual_Projects\ELEKScamp\Applications\bin\Release\net5.0\Microsoft.Extensions.Identity.Core.dll
 C:\Visual_Projects\ELEKScamp\Applications\bin\Release\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Visual_Projects\ELEKScamp\Applications\obj\Release\net5.0\Applications.csproj.CopyComplete

@@ -38,12 +38,12 @@ namespace dotNet_TWITTER.WEB_UI
             services.AddDbContext<UserContext>(options =>
                 options.UseSqlServer(connection));
 
-            /*services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<UserContext>();*/
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<UserContext>();
 
-            services.AddDefaultIdentity<User>(options =>
+            /*services.AddDefaultIdentity<User>(options =>
                 options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<UserContext>();
+                    .AddEntityFrameworkStores<UserContext>();*/
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => //CookieAuthenticationOptions
