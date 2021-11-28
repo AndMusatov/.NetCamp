@@ -20,7 +20,7 @@ namespace Twitter.IntegrationTests.Base
         {
         }
 
-        public new void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserContext userContext)
+        public void Configure(IApplicationBuilder app)
         {
 
             var serviceScopeFactory = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>();
