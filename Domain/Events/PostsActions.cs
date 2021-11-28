@@ -81,14 +81,9 @@ namespace dotNet_TWITTER.Domain.Events
             return true;
         }
 
-        public List<Post> GetAllPosts()
+        public async Task<List<Post>> GetAllSubPosts(string eMail)
         {
-            return _context.Post.ToList();
-        }
-
-        public List<Post> GetAllSubPosts(string eMail)
-        {
-            /*User user = _context.UsersDB.FirstOrDefault(u => u.EMail == eMail);
+            User user = await _userManager.FindByEmailAsync(eMail);
             List<Post> posts = new List<Post>();
             List<Subscription> subscriptions = _context.Subscriptions.Where(s => s.AuthUser == user.UserName).ToList();
             foreach (var sub in subscriptions)
@@ -97,8 +92,7 @@ namespace dotNet_TWITTER.Domain.Events
                 posts.AddRange(authPosts);
             }
             posts.Sort((ps1, ps2) => DateTime.Compare(ps1.Date, ps2.Date));
-            return posts;*/
-            return null;
+            return posts;
         }
     }
 }
