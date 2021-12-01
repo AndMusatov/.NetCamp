@@ -12,15 +12,15 @@ namespace dotNet_TWITTER.WEB_UI.Controllers
 {
     public class PostController : Controller
     {
-        private UserContext _context;
-        private readonly UserManager<User> _userManager;
+        //private UserContext _context;
+        //private readonly UserManager<User> _userManager;
         private readonly IPostsRepository _postsRepository;
         private IGenericRepository<Post> _genericRepository;
 
-        public PostController(UserContext context, UserManager<User> userManager, IPostsRepository postsRepository, IGenericRepository<Post> genericRepository)
+        public PostController(IPostsRepository postsRepository, IGenericRepository<Post> genericRepository)
         {
-            _context = context;
-            _userManager = userManager;
+            //_context = context;
+            //_userManager = userManager;
             _postsRepository = postsRepository;
             _genericRepository = genericRepository;
         }
@@ -29,7 +29,7 @@ namespace dotNet_TWITTER.WEB_UI.Controllers
         [HttpPost("PostCreation")]
         public async Task<ActionResult> CreatePost(string filling)
         {
-            PostsActions postsActions = new PostsActions(_context, _userManager, _genericRepository);
+            PostsActions postsActions = new PostsActions(_genericRepository);
             return Ok(await postsActions.AddPost(filling, User.FindFirstValue(ClaimTypes.Name), User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
 
@@ -40,20 +40,20 @@ namespace dotNet_TWITTER.WEB_UI.Controllers
             return Ok(_postsRepository.GetAuthPosts(User.FindFirstValue(ClaimTypes.Name), postsParameters));
         }
 
-        [Authorize]
+        /*[Authorize]
         [HttpGet("ShowSubPosts")]
         public ActionResult ShowSubPosts([FromQuery] PostsParameters postsParameters)
         {
             PostsActions postsActions = new PostsActions(_context, _userManager, _genericRepository);
             return Ok(postsActions.GetAllSubPosts(User.FindFirstValue(ClaimTypes.Name), postsParameters));
-        }
+        }*/
 
-        [Authorize]
+        /*[Authorize]
         [HttpDelete("DeleteAuthUserPost")]
         public async Task<ActionResult> DeleteAuthUserPost(string postId)
         {
             PostsActions postsActions = new PostsActions(_context, _userManager, _genericRepository);
             return Ok(await postsActions.DeletePost(postId, User.FindFirstValue(ClaimTypes.Name)));
-        }
+        }*/
     }
 }

@@ -12,14 +12,14 @@ namespace dotNet_TWITTER.Infrastructure.Services
 {
     public class PostsActions
     {
-        private readonly UserManager<User> _userManager;
-        private UserContext _context;
+        //private readonly UserManager<User> _userManager;
+        //private UserContext _context;
         private readonly IGenericRepository<Post> _genericRepository;
 
-        public PostsActions(UserContext context, UserManager<User> userManager, IGenericRepository<Post> genericRepository)
+        public PostsActions(IGenericRepository<Post> genericRepository)
         {
-            _context = context;
-            _userManager = userManager;
+            //_context = context;
+            //_userManager = userManager;
             _genericRepository = genericRepository;
         }
 
@@ -42,7 +42,7 @@ namespace dotNet_TWITTER.Infrastructure.Services
             return null;
         }
 
-        public async Task<string> DeletePost(string postId, string userName)
+        /*public async Task<string> DeletePost(string postId, string userName)
         {
            if (PostExists(postId))
            {
@@ -51,7 +51,7 @@ namespace dotNet_TWITTER.Infrastructure.Services
                 return "This post is deleted";
            }
             return "This post doesn`t exist";
-        }
+        }*/
 
         public bool CanCreatePost(string filling)
         {
@@ -62,7 +62,7 @@ namespace dotNet_TWITTER.Infrastructure.Services
             return true;
         }
 
-        public bool PostExists(string postId)
+        /*public bool PostExists(string postId)
         {
             Post post = _context.Post.FirstOrDefault(x => x.PostId == postId);
             if (post == null)
@@ -70,9 +70,9 @@ namespace dotNet_TWITTER.Infrastructure.Services
                 return false;
             }
             return true;
-        }
+        }*/
 
-        public async Task<List<Post>> GetAllSubPosts(string userName, PostsParameters postsParameters)
+        /*public async Task<List<Post>> GetAllSubPosts(string userName, PostsParameters postsParameters)
         {
             List<Post> posts = new List<Post>();
             List<Subscription> subscriptions = _context.Subscriptions.Where(s => s.AuthUser == userName).ToList();
@@ -86,6 +86,6 @@ namespace dotNet_TWITTER.Infrastructure.Services
                 .Skip((postsParameters.PageNumber - 1) * postsParameters.PageSize)
                 .Take(postsParameters.PageSize);
             return result.ToList();
-        }
+        }*/
     }
 }

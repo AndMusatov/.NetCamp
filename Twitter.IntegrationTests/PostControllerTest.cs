@@ -1,6 +1,5 @@
 ﻿using dotNet_TWITTER.Applications.Common.Models;
 using dotNet_TWITTER.Controllers;
-using dotNet_TWITTER.Domain.Events;
 using dotNet_TWITTER.WEB_UI;
 using FluentAssertions;
 using Microsoft.AspNetCore.Identity;
