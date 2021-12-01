@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8+gkutl1qz8y/QLPPXcc70PK4h4nw8jjxTfyELYq0jWozKyPKgRzaGjrHN0GD1n2IZ8/gzVI1uL3bft9yKwuRQ==",
+  "dgSpecHash": "eOPXEWC3LygR816Ex5thY6ZpB/iKDF4RSA0CNP7SZlolCsIoeDWspYhSrlb2BmXWIMvJxEd8Y9mOmezQUHRq5Q==",
   "success": true,
   "projectFilePath": "C:\\Visual_Projects\\ELEKScamp\\Applications\\Applications.csproj",
   "expectedPackageFiles": [
@@ -84,7 +84,7 @@
     "C:\\Users\\musat\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.reflection.typeextensions\\4.3.0\\system.reflection.typeextensions.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.resources.resourcemanager\\4.3.0\\system.resources.resourcemanager.4.3.0.nupkg.sha512",
-    "C:\\Users\\musat\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\musat\\.nuget\\packages\\system.runtime\\4.3.1\\system.runtime.4.3.1.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.runtime.caching\\4.7.0\\system.runtime.caching.4.7.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.runtime.extensions\\4.3.0\\system.runtime.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.runtime.handles\\4.3.0\\system.runtime.handles.4.3.0.nupkg.sha512",

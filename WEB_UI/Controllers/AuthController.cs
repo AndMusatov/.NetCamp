@@ -1,5 +1,5 @@
 ﻿using dotNet_TWITTER.Applications.Common.Models;
-using dotNet_TWITTER.Domain.Events;
+using dotNet_TWITTER.Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

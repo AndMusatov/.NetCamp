@@ -61,3 +61,9 @@ C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Microsoft.OpenApi.dll
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Infrastructure.deps.json
+C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Infrastructure.runtimeconfig.json
+C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Infrastructure.runtimeconfig.dev.json
+C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Infrastructure.exe
+C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Infrastructure.dll
+C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Infrastructure.pdb

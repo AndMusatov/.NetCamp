@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using dotNet_TWITTER.Domain.Events;
 using Microsoft.AspNetCore.Authorization;
 using dotNet_TWITTER.Applications.Data;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using dotNet_TWITTER.Applications.Common.Models;
 using System.Threading.Tasks;
+using dotNet_TWITTER.Infrastructure.Services;
 
 namespace dotNet_TWITTER.Controllers
 {
