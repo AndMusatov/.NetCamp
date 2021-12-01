@@ -20,9 +20,8 @@ namespace Twitter.IntegrationTests.Base
         {
         }
 
-        public void Configure(IApplicationBuilder app)
+        public new void Configure(IApplicationBuilder app)
         {
-
             var serviceScopeFactory = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>();
             using (var serviceScope = serviceScopeFactory.CreateScope())
             {
@@ -32,6 +31,7 @@ namespace Twitter.IntegrationTests.Base
                 {
                     throw new Exception("LIVE SETTINGS IN TESTS!");
                 }
+
 
                 // Initialize database
             }

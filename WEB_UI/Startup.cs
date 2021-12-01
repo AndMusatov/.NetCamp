@@ -1,5 +1,6 @@
 using dotNet_TWITTER.Applications.Common.Models;
 using dotNet_TWITTER.Applications.Data;
+using dotNet_TWITTER.Infrastructure.Repository;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -58,6 +59,18 @@ namespace dotNet_TWITTER.WEB_UI
             {
                 options.
             });*/
+            /*services.AddAuthentication(o =>
+            {
+                // This forces challenge results to be handled by Google OpenID Handler, so there's no
+                // need to add an AccountController that emits challenges for Login.
+                o.DefaultChallengeScheme = GoogleOpenIdConnectDefaults.AuthenticationScheme;
+                // This forces forbid results to be handled by Google OpenID Handler, which checks if
+                // extra scopes are required and does automatic incremental auth.
+                o.DefaultForbidScheme = GoogleOpenIdConnectDefaults.AuthenticationScheme;
+                // Default scheme that will handle everything else.
+                // Once a user is authenticated, the OAuth2 token info is stored in cookies.
+                o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            });*/
 
 
 
@@ -72,6 +85,10 @@ namespace dotNet_TWITTER.WEB_UI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "dotNet_TWITTER", Version = "v1" });
             });
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddTransient<IPostsRepository, PostsRepository>();
+            services.AddScoped<IPostsRepository, PostsRepository>();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

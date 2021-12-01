@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "EzV2+7p4q5MAw86mPWOaS7zjMTdPlTcPTrTCdbAOHYXo4TNtcqkqoxmboyFqVj0Chh3CRJZrt+7ezafRQdzUjQ==",
+  "dgSpecHash": "p0pD75RwS2r1JPIeHNfL4Uyh4sRyPJ2V7GMAEN75RtPrX84MIuVq3YT3IQFOQtGfZInLAQ/5gIszIlcL8WPrRA==",
   "success": true,
   "projectFilePath": "C:\\Visual_Projects\\ELEKScamp\\Twitter.IntegrationTests\\Twitter.IntegrationTests.csproj",
   "expectedPackageFiles": [
@@ -146,7 +146,7 @@
     "C:\\Users\\musat\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.reflection.typeextensions\\4.3.0\\system.reflection.typeextensions.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.resources.resourcemanager\\4.3.0\\system.resources.resourcemanager.4.3.0.nupkg.sha512",
-    "C:\\Users\\musat\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\musat\\.nuget\\packages\\system.runtime\\4.3.1\\system.runtime.4.3.1.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.runtime.caching\\4.7.0\\system.runtime.caching.4.7.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.runtime.extensions\\4.3.0\\system.runtime.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\system.runtime.handles\\4.3.0\\system.runtime.handles.4.3.0.nupkg.sha512",
