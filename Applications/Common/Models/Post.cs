@@ -10,7 +10,6 @@ namespace dotNet_TWITTER.Applications.Common.Models
         public string Filling { get; set; }
         public DateTime Date { get; set; }
         public List<Comment> Comments = new List<Comment>();
-        public List<string> Likes = new List<string>();
 
         public string UserId { get; set; }
 

@@ -32,7 +32,6 @@ C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Microsoft.IdentityModel.L
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Microsoft.IdentityModel.Protocols.dll
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Microsoft.IdentityModel.Tokens.dll
-C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Newtonsoft.Json.dll
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\System.Configuration.ConfigurationManager.dll
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\System.Diagnostics.DiagnosticSource.dll
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\System.IdentityModel.Tokens.Jwt.dll
@@ -41,13 +40,9 @@ C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\System.Security.Cryptogra
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Bogus.dll
@@ -67,3 +62,11 @@ C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Infrastructure.runtimecon
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Infrastructure.exe
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Infrastructure.dll
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Infrastructure.pdb
+C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\EFCore.BulkExtensions.dll
+C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Microsoft.Data.Sqlite.dll
+C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Microsoft.EntityFrameworkCore.Sqlite.dll
+C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\NetTopologySuite.dll
+C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\NetTopologySuite.IO.SqlServerBytes.dll
+C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\SQLitePCLRaw.core.dll

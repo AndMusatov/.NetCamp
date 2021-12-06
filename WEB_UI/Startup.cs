@@ -88,6 +88,12 @@ namespace dotNet_TWITTER.WEB_UI
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddTransient<IPostsRepository, PostsRepository>();
             services.AddScoped<IPostsRepository, PostsRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddTransient<ICommentRepository, CommentRepository>();
+            services.AddScoped<ICommentRepository, CommentRepository>();
+            services.AddTransient<ISubRepository, SubRepository>();
+            services.AddScoped<ISubRepository, SubRepository>();
             services.AddHttpContextAccessor();
         }
 

@@ -7,14 +7,10 @@ using System.Threading.Tasks;
 
 namespace dotNet_TWITTER.Infrastructure.Repository
 {
-    public interface IGenericRepository<T> where T : class
+    public interface ICommentRepository : IGenericRepository<Comment>
     {
-        Task Add(T entity);
-        Task AddRange(List<T> entity);
-        Task Remove(T entity);
-        Task RemoveRange(T entity);
-        Task<T> GetById(string id);
+        Task RemovePostComments(string postId);
+        Task<List<Comment>> GetPostComments(string postId);
+        bool PostForCommentExists(string postId);
     }
-
-
 }

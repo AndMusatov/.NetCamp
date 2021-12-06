@@ -1,5 +1,6 @@
 ﻿using dotNet_TWITTER.Applications.Common.Models;
 using dotNet_TWITTER.Applications.Data;
+using dotNet_TWITTER.Infrastructure.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -11,40 +12,28 @@ namespace dotNet_TWITTER.Infrastructure.Services
 {
     public class AuthActions
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
-        public AuthActions(UserManager<User> userManager, SignInManager<User> signInManager)
+        private readonly IUserRepository _userRepository;
+        private readonly IPostsRepository _postsRepository;
+        public AuthActions(IUserRepository userRepository, IPostsRepository postsRepository)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            _userRepository = userRepository;
+            _postsRepository = postsRepository;
         }
 
         public async Task<object> Registration(RegisterModel registerModel)
         {
             User user = new User { Email = registerModel.Email, UserName = registerModel.UserName };
-            var result = await _userManager.CreateAsync(user, registerModel.Password);
-            if (result.Succeeded)
-            {
-                await _signInManager.SignInAsync(user, false);
-                return "Registration is done";
-            }
-            else
-            {
-                return result;
-            }
-        }
-
-        public async Task<object> Login(LoginModel loginModel)
-        {
-            var result = await _signInManager.PasswordSignInAsync(loginModel.UserName, loginModel.Password, false, false);
-            return result;
+            var result = await _userRepository.RegisterUser(user, registerModel.Password);
+            await _userRepository.SignInUser(user);
+            return "Registration is done";
         }
 
         public async Task<object> DeleteUser(string userId)
         {
-            User user = await _userManager.FindByIdAsync(userId);
-            var result = await _userManager.DeleteAsync(user);
-            return result;
+            User user = await _userRepository.GetById(userId);
+            await _postsRepository.RemoveUserPosts(user.UserName);
+            await _userRepository.Remove(user);
+            return "User was deleted";
         }
     }
 }
