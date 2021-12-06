@@ -14,27 +14,41 @@ namespace dotNet_TWITTER.Infrastructure.Repository
     {
         protected readonly UserContext _context;
         protected readonly UserManager<User> _userManager;
-        public GenericRepository(UserContext context, UserManager<User> userManager)
+        protected readonly SignInManager<User> _signInManager;
+        public GenericRepository(UserContext context, UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _context = context;
             _userManager = userManager;
+            _signInManager = signInManager; 
         }
 
-        public void Add(T entity)
+        public async Task Add(T entity)
         {
-            _context.Set<T>().Add(entity);
-            _context.SaveChanges();
+            await _context.Set<T>().AddAsync(entity);
+            await _context.SaveChangesAsync();
         }
 
-        public void Remove(T entity)
+        public async Task AddRange(List<T> entity)
+        {
+            await _context.Set<T>().AddRangeAsync(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task Remove(T entity)
         {
             _context.Set<T>().Remove(entity);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public async Task<User> FindById(string id)
+        public async Task RemoveRange(T entity)
         {
-            return await _userManager.FindByIdAsync(id);
+            _context.Set<T>().RemoveRange(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<T> GetById(string id)
+        {
+            return await _context.Set<T>().FindAsync(id);
         }
     }
 }

@@ -9,6 +9,10 @@ namespace dotNet_TWITTER.Infrastructure.Repository
 {
     public interface IPostsRepository : IGenericRepository<Post>
     {
-        IEnumerable<Post> GetAuthPosts(string userName, PostsParameters postsParameters);
+        Task<List<Post>> GetAuthPosts(string userName);
+        Task<List<Post>> GetUserPosts(string userName);
+        Task<List<Post>> GetSubPosts(string userName);
+        Task RemoveUserPosts(string userName);
+
     }
 }

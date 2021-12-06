@@ -1,4 +1,5 @@
 ﻿using dotNet_TWITTER.Applications.Common.Models;
+using dotNet_TWITTER.Infrastructure.Repository;
 using dotNet_TWITTER.Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -10,12 +11,12 @@ namespace dotNet_TWITTER.Controllers
 {
     public class AuthController : Controller
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
-        public AuthController(UserManager<User> userManager, SignInManager<User> signInManager)
+        private readonly IUserRepository _userRepository;
+        private readonly IPostsRepository _postRepository;
+        public AuthController(IUserRepository userRepository, IPostsRepository postsRepository)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+            _userRepository = userRepository;
+            _postRepository = postsRepository;
         }
 
 
@@ -24,7 +25,7 @@ namespace dotNet_TWITTER.Controllers
         {
             if (ModelState.IsValid)
             {
-                AuthActions authActions = new AuthActions(_userManager, _signInManager);
+                AuthActions authActions = new AuthActions(_userRepository, _postRepository);
                 var result = await authActions.Registration(model);
                 return Json(result);
             }
@@ -36,8 +37,7 @@ namespace dotNet_TWITTER.Controllers
         {
             if (ModelState.IsValid)
             {
-                AuthActions authActions = new AuthActions(_userManager, _signInManager);
-                var result = await authActions.Login(model);
+                var result = await _userRepository.PasswordSignInUser(model.UserName, model.Password);
                 return Json(result);
             }
             return Ok(model);
@@ -54,7 +54,7 @@ namespace dotNet_TWITTER.Controllers
         [HttpDelete("DeleteLoginedUser")]
         public async Task<IActionResult> DeleteUser()
         {
-            AuthActions authActions = new AuthActions(_userManager, _signInManager);
+            AuthActions authActions = new AuthActions(_userRepository, _postRepository);
             return Json(await authActions.DeleteUser(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
     }

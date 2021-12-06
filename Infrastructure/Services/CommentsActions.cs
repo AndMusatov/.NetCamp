@@ -5,64 +5,64 @@ using System.Text;
 using System.Threading.Tasks;
 using dotNet_TWITTER.Applications.Common.Models;
 using dotNet_TWITTER.Applications.Data;
+using dotNet_TWITTER.Infrastructure.Repository;
 using Microsoft.AspNetCore.Identity;
 
 namespace dotNet_TWITTER.Infrastructure.Services
 {
     public class CommentsActions
     {
-        UserContext _context;
-        UserManager<User> _userManager;
+        private readonly ICommentRepository _commentRepository;
 
-        public CommentsActions(UserContext context, UserManager<User> userManager)
+        public CommentsActions(ICommentRepository commentRepository)
         {
-            _context = context;
-            _userManager = userManager;
+            _commentRepository = commentRepository;
         }
 
-        public List<Comment> GetComments(string postId)
+        public async Task<List<Comment>> GetComments(string postId)
         {
-            var result = _context.Comment.Where(p => p.PostId == postId);
-            return result.ToList();
-        }
-
-        public async Task<string> AddComment(string postId, string commentStr, string userId)
-        {
-            if (CommentsInputCheck(commentStr))
+            if (_commentRepository.PostForCommentExists(postId))
             {
-                User user = await _userManager.FindByIdAsync(userId);
-                List<Comment> comments = new List<Comment>();
-                Post post = _context.Post.FirstOrDefault(p => p.PostId == postId);
-                _context.Comment.Add(new Comment
+                return await _commentRepository.GetPostComments(postId);
+            }
+            return null;
+        }
+
+        public async Task<Comment> AddComment(string postId, string commentStr, string userName)
+        {
+            if (CommentsInputCheck(commentStr) & _commentRepository.PostForCommentExists(postId))
+            {
+                Comment comment = new Comment
                 {
                     CommentId = Guid.NewGuid().ToString("N"),
                     PostId = postId,
-                    UserName = user.UserName,
+                    UserName = userName,
                     CommentFilling = commentStr
-                }
-                );
-                await _context.SaveChangesAsync();
-                return "Input is Ok";
+                };
+                await _commentRepository.Add(comment);
+                return comment;
             }
-            return "Input is wrong";
+            return null;
         }
 
         public bool CommentsInputCheck(string comment)
         {
-            if (string.IsNullOrEmpty(comment))
+            if (string.IsNullOrWhiteSpace(comment))
             {
                 return false;
             }
             return true;
         }
 
-        public async Task<string> RemoveComment(string userId, string commentId, string postId)
+        public async Task<bool> RemoveComment(string commentId)
         {
-            User user = await _userManager.FindByIdAsync(userId);
-            var comment = _context.Comment.Single(x => x.UserName == user.UserName && x.PostId == postId && x.CommentId == commentId);
-            _context.Comment.Remove(comment);
-            await _context.SaveChangesAsync();
-            return "Cooment was removed";
+            var comment = await _commentRepository.GetById(commentId);
+            if (comment != null)
+            {
+                await _commentRepository.Remove(comment);
+                return true;
+            }
+            return false;
         }
     }
 }

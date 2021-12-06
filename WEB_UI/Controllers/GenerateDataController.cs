@@ -30,5 +30,12 @@ namespace dotNet_TWITTER.Controllers
             DataGenerator.CancellGeneration();
             return Ok("Canceled");
         }
+
+        [HttpPost("AddBulkDataAsync")]
+        public async Task<ActionResult> AddBulkDataAsync(int quantityOfUsers, int quantityOfPostsForOneUser)
+        {
+            DataGenerator dataGenerator = new DataGenerator(_context, _userManager);
+            return Ok(await dataGenerator.AddBulkDataAsync(quantityOfUsers, quantityOfPostsForOneUser));
+        }
     }
 }

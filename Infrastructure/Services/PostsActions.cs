@@ -12,15 +12,20 @@ namespace dotNet_TWITTER.Infrastructure.Services
 {
     public class PostsActions
     {
-        //private readonly UserManager<User> _userManager;
-        //private UserContext _context;
-        private readonly IGenericRepository<Post> _genericRepository;
+        private readonly IPostsRepository _postRepository;
 
-        public PostsActions(IGenericRepository<Post> genericRepository)
+        public PostsActions(IPostsRepository postsRepository)
         {
-            //_context = context;
-            //_userManager = userManager;
-            _genericRepository = genericRepository;
+            _postRepository = postsRepository;  
+        }
+
+        public async Task<List<Post>> GetAuthUserPosts(string userName, PostsParameters postsParameters)
+        {
+            var result = await _postRepository.GetAuthPosts(userName);
+            return result
+                .Skip((postsParameters.PageNumber - 1) * postsParameters.PageSize)
+                .Take(postsParameters.PageSize)
+                .ToList();
         }
 
         public async Task<Post> AddPost(string filling, string userName,string userId)
@@ -33,59 +38,41 @@ namespace dotNet_TWITTER.Infrastructure.Services
                     UserName = userName,
                     UserId = userId,
                     Date = DateTime.Now,
-                    Filling = filling,
-                    User = await _genericRepository.FindById(userId)
+                    Filling = filling
                 };
-                _genericRepository.Add(post);
+                await _postRepository.Add(post);
                 return post;
             }
             return null;
         }
 
-        /*public async Task<string> DeletePost(string postId, string userName)
+        public async Task<string> DeletePost(string postId)
         {
-           if (PostExists(postId))
-           {
-                var post = _context.Post.Single(x => x.UserName == userName && x.PostId == postId);
-                _genericRepository.Remove(post);
+            var post = await _postRepository.GetById(postId);
+            if (post != null)
+            {
+                await _postRepository.Remove(post);
                 return "This post is deleted";
-           }
+            }
             return "This post doesn`t exist";
-        }*/
+        }
 
         public bool CanCreatePost(string filling)
         {
-            if (string.IsNullOrEmpty(filling))
+            if (string.IsNullOrWhiteSpace(filling))
             {
                 return false;
             }
             return true;
         }
-
-        /*public bool PostExists(string postId)
+        public async Task<List<Post>> GetSubPosts(string userName, PostsParameters postsParameters)
         {
-            Post post = _context.Post.FirstOrDefault(x => x.PostId == postId);
-            if (post == null)
-            {
-                return false;
-            }
-            return true;
-        }*/
-
-        /*public async Task<List<Post>> GetAllSubPosts(string userName, PostsParameters postsParameters)
-        {
-            List<Post> posts = new List<Post>();
-            List<Subscription> subscriptions = _context.Subscriptions.Where(s => s.AuthUser == userName).ToList();
-            foreach (var sub in subscriptions)
-            {
-                List<Post> authPosts = _context.Post.Where(p => p.UserName == sub.SubUser).ToList();
-                posts.AddRange(authPosts);
-            }
+            List<Post> posts = await _postRepository.GetSubPosts(userName);
             posts.Sort((ps1, ps2) => DateTime.Compare(ps1.Date, ps2.Date));
-            var result = _context.Post
+            var result = posts
                 .Skip((postsParameters.PageNumber - 1) * postsParameters.PageSize)
                 .Take(postsParameters.PageSize);
             return result.ToList();
-        }*/
+        }
     }
 }

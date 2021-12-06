@@ -12,48 +12,48 @@ namespace dotNet_TWITTER.WEB_UI.Controllers
 {
     public class PostController : Controller
     {
-        //private UserContext _context;
-        //private readonly UserManager<User> _userManager;
         private readonly IPostsRepository _postsRepository;
-        private IGenericRepository<Post> _genericRepository;
 
-        public PostController(IPostsRepository postsRepository, IGenericRepository<Post> genericRepository)
+        public PostController(IPostsRepository postsRepository)
         {
-            //_context = context;
-            //_userManager = userManager;
             _postsRepository = postsRepository;
-            _genericRepository = genericRepository;
         }
 
         [Authorize]
         [HttpPost("PostCreation")]
         public async Task<ActionResult> CreatePost(string filling)
         {
-            PostsActions postsActions = new PostsActions(_genericRepository);
+            PostsActions postsActions = new PostsActions(_postsRepository);
+            Post post = await postsActions.AddPost(filling, User.FindFirstValue(ClaimTypes.Name), User.FindFirstValue(ClaimTypes.NameIdentifier));
+            if (post == null)
+            {
+                return BadRequest();
+            }
             return Ok(await postsActions.AddPost(filling, User.FindFirstValue(ClaimTypes.Name), User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
 
         [Authorize]
         [HttpGet("ShowAuthUserPosts")]
-        public ActionResult ShowAuthUserPosts([FromQuery] PostsParameters postsParameters)
+        public async Task<ActionResult> GetAuthUserPosts([FromQuery] PostsParameters postsParameters)
         {
-            return Ok(_postsRepository.GetAuthPosts(User.FindFirstValue(ClaimTypes.Name), postsParameters));
+            PostsActions postsActions = new PostsActions(_postsRepository);
+            return Ok(await postsActions.GetAuthUserPosts(User.FindFirstValue(ClaimTypes.Name), postsParameters));
         }
 
-        /*[Authorize]
+        [Authorize]
         [HttpGet("ShowSubPosts")]
-        public ActionResult ShowSubPosts([FromQuery] PostsParameters postsParameters)
+        public async Task<ActionResult> GetSubPosts([FromQuery] PostsParameters postsParameters)
         {
-            PostsActions postsActions = new PostsActions(_context, _userManager, _genericRepository);
-            return Ok(postsActions.GetAllSubPosts(User.FindFirstValue(ClaimTypes.Name), postsParameters));
-        }*/
+            PostsActions postsActions = new PostsActions(_postsRepository);
+            return Ok(await postsActions.GetSubPosts(User.FindFirstValue(ClaimTypes.Name), postsParameters));
+        }
 
-        /*[Authorize]
+        [Authorize]
         [HttpDelete("DeleteAuthUserPost")]
-        public async Task<ActionResult> DeleteAuthUserPost(string postId)
+        public async Task<ActionResult> RemoveAuthUserPost(string postId)
         {
-            PostsActions postsActions = new PostsActions(_context, _userManager, _genericRepository);
-            return Ok(await postsActions.DeletePost(postId, User.FindFirstValue(ClaimTypes.Name)));
-        }*/
+            PostsActions postsActions = new PostsActions(_postsRepository);
+            return Ok(await postsActions.DeletePost(postId));
+        }
     }
 }
