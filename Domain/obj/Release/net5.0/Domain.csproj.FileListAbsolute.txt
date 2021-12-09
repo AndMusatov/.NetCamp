@@ -13,10 +13,6 @@ C:\Visual_Projects\ELEKScamp\Domain\obj\Release\net5.0\Domain.dll
 C:\Visual_Projects\ELEKScamp\Domain\obj\Release\net5.0\ref\Domain.dll
 C:\Visual_Projects\ELEKScamp\Domain\obj\Release\net5.0\Domain.pdb
 C:\Visual_Projects\ELEKScamp\Domain\obj\Release\net5.0\Domain.genruntimeconfig.cache
-C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Applications.deps.json
-C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Applications.runtimeconfig.json
-C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Applications.runtimeconfig.dev.json
-C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Applications.exe
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Applications.dll
 C:\Visual_Projects\ELEKScamp\Domain\bin\Release\net5.0\Applications.pdb
 C:\Visual_Projects\ELEKScamp\Domain\obj\Release\net5.0\Domain.csproj.AssemblyReference.cache

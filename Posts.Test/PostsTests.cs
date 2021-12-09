@@ -1,6 +1,6 @@
 ﻿using dotNet_TWITTER.Applications.Common.Models;
 using dotNet_TWITTER.Infrastructure.Repository;
-using dotNet_TWITTER.WEB_UI.Controllers;
+using dotNet_TWITTER.Controllers;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

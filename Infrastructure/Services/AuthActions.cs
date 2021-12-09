@@ -25,7 +25,7 @@ namespace dotNet_TWITTER.Infrastructure.Services
             User user = new User { Email = registerModel.Email, UserName = registerModel.UserName };
             var result = await _userRepository.RegisterUser(user, registerModel.Password);
             await _userRepository.SignInUser(user);
-            return "Registration is done";
+            return result;
         }
 
         public async Task<object> DeleteUser(string userId)
@@ -34,6 +34,27 @@ namespace dotNet_TWITTER.Infrastructure.Services
             await _postsRepository.RemoveUserPosts(user.UserName);
             await _userRepository.Remove(user);
             return "User was deleted";
+        }
+
+        public async Task<object> GoogleRegister(string email, string userName)
+        {
+            User user = new User
+            {
+                Email = email,
+                UserName = userName
+            };
+            return await _userRepository.GoogleRegisterUser(user);
+        }
+
+        public async Task GoogleLogin(string email)
+        {
+            User user = await _userRepository.GetByEmail(email);
+            await _userRepository.SignInUser(user);
+        }
+
+        public async Task<User> GetUserByEmail(string email)
+        {
+            return await _userRepository.GetByEmail(email);
         }
     }
 }

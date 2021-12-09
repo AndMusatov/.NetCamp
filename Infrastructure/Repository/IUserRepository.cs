@@ -11,7 +11,9 @@ namespace dotNet_TWITTER.Infrastructure.Repository
     public interface IUserRepository : IGenericRepository<User>
     {
         Task<Object> RegisterUser(User user, string password);
+        Task<Object> GoogleRegisterUser(User user);
         Task SignInUser(User user);
         Task<Object> PasswordSignInUser(string user, string password);
+        Task<User> GetByEmail(string email);    
     }
 }

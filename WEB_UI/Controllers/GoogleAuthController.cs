@@ -1,10 +1,14 @@
 ﻿using dotNet_TWITTER.Applications.Common.Models;
 using dotNet_TWITTER.Applications.Data;
+using dotNet_TWITTER.Infrastructure.Repository;
+using dotNet_TWITTER.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace dotNet_TWITTER.Controllers
@@ -13,14 +17,12 @@ namespace dotNet_TWITTER.Controllers
     [Route("account")]
     public class GoogleAuthController : Controller
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
-        private UserContext _context;
-        public GoogleAuthController(UserContext context, UserManager<User> userManager, SignInManager<User> signInManager)
+        protected IUserRepository _userRepository;
+        protected IPostsRepository _postsRepository;
+        public GoogleAuthController(IUserRepository userRepository, IPostsRepository postsRepository)
         {
-            _context = context;
-            _userManager = userManager;
-            _signInManager = signInManager;
+            _userRepository = userRepository;
+            _postsRepository = postsRepository;
         }
         [HttpGet]
         [Route("google-login")]
@@ -34,33 +36,17 @@ namespace dotNet_TWITTER.Controllers
         [Route("signin-google")]
         public async Task<ActionResult> GoogleResponse()
         {
-            var authenticateResult = await HttpContext.AuthenticateAsync();
-            //ExternalLoginInfo loginInfo = await _signInManager.GetExternalLoginInfoAsync();
-            //User user = await _userManager.FindByEmailAsync(loginInfo.AuthenticationProperties.GetTokenValue(EmailTokenProvider));
-            var result = await HttpContext.AuthenticateAsync();
-            //User user = _userManager.GetUserAsync(result);
-            //await _signInManager.SignInAsync(result, false);
-
-            var claims = result.Principal.Identities.FirstOrDefault()
-                .Claims.Select(claim => new
-                {
-                    claim.Value
-                });
-            return Json(authenticateResult);
-        }
-
-        [HttpPost]
-        [Route("google-register")]
-        public async Task<IActionResult> GoogleRegistration(GoogleRegisterModel googleRegisterModel)
-        {
-            /*if (ModelState.IsValid)
+            AuthActions authActions = new AuthActions(_userRepository, _postsRepository);
+            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            if (!result.Succeeded)
+                return BadRequest();
+            User user = await authActions.GetUserByEmail(result.Principal.FindFirst(ClaimTypes.Email).Value);
+            if (user == null)
             {
-                AuthActions authActions = new AuthActions(_userManager, _signInManager);
-                await authActions.Registration(googleRegisterModel, User.FindFirstValue(ClaimTypes.Email));
-                return Ok("Registration is ok");
-            }*/
-
-            return Ok("Wrong model");
+                return Json(await authActions.GoogleRegister(
+                    result.Principal.FindFirst(ClaimTypes.Email).Value, result.Principal.FindFirst(ClaimTypes.Email).Value));
+            }
+            return Ok(result.Principal.FindFirst(ClaimTypes.Email).Value);
         }
     }
 }
