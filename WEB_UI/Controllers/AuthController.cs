@@ -27,9 +27,9 @@ namespace dotNet_TWITTER.Controllers
             {
                 AuthActions authActions = new AuthActions(_userRepository, _postRepository);
                 var result = await authActions.Registration(model);
-                return Json(result);
+                return Ok(result);
             }
-            return Ok("Wrong input");
+            return BadRequest(model);
         }
 
         [HttpPost("AuthLogin")]
@@ -38,9 +38,9 @@ namespace dotNet_TWITTER.Controllers
             if (ModelState.IsValid)
             {
                 var result = await _userRepository.PasswordSignInUser(model.UserName, model.Password);
-                return Json(result);
+                return Ok(result);
             }
-            return Ok(model);
+            return BadRequest(model);
         }
 
         [Authorize]
@@ -55,7 +55,7 @@ namespace dotNet_TWITTER.Controllers
         public async Task<IActionResult> DeleteUser()
         {
             AuthActions authActions = new AuthActions(_userRepository, _postRepository);
-            return Json(await authActions.DeleteUser(User.FindFirstValue(ClaimTypes.NameIdentifier)));
+            return Ok(await authActions.DeleteUser(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
     }
 }

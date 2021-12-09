@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,21 +20,29 @@ namespace Twitter.IntegrationTests.Base
         {
         }
 
-        public new void Configure(IApplicationBuilder app)
+        [Obsolete]
+        public override void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            base.Configure(app, env);
+
             var serviceScopeFactory = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>();
             using (var serviceScope = serviceScopeFactory.CreateScope())
             {
                 var dbContext = serviceScope.ServiceProvider.GetService<UserContext>();
 
-                if (dbContext.Database.GetDbConnection().ConnectionString.ToLower().Contains("database.windows.net"))
+                if (dbContext.Database.GetDbConnection().ConnectionString.ToLower().Contains("DefaultConnection"))
                 {
                     throw new Exception("LIVE SETTINGS IN TESTS!");
                 }
 
-
                 // Initialize database
             }
+        }
+
+        public override void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContext<UserContext>(options =>
+                options.UseInMemoryDatabase("customerDb_test"));
         }
     }
 }

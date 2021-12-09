@@ -28,7 +28,7 @@ namespace dotNet_TWITTER.WEB_UI
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public virtual void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
             string connection = Configuration.GetConnectionString("DefaultConnection");
@@ -38,39 +38,28 @@ namespace dotNet_TWITTER.WEB_UI
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<UserContext>();
 
-            /*services.AddDefaultIdentity<User>(options =>
-                options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<UserContext>();*/
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => //CookieAuthenticationOptions
-                {
+                { 
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/account/google-login");
-                })
-                .AddGoogle(options =>
-                 {
-                     IConfigurationSection googleAuthNSection =
-                         Configuration.GetSection("Authentication:Google");
+                });
+            services.AddAuthentication(o =>
+            {
+                o.DefaultScheme = "Application";
+                o.DefaultSignInScheme = "External";
+            })
+            .AddCookie("Application")
+            .AddCookie("External")
+            .AddGoogle(o =>
+            {
+                IConfigurationSection googleAuthNSection =
+                                 Configuration.GetSection("Authentication:Google");
 
-                     options.ClientId = googleAuthNSection["ClientId"];
-                     options.ClientSecret = googleAuthNSection["ClientSecret"];
-                 });
-            /*.AddTwitter(options =>
-            {
-                options.
-            });*/
-            /*services.AddAuthentication(o =>
-            {
-                // This forces challenge results to be handled by Google OpenID Handler, so there's no
-                // need to add an AccountController that emits challenges for Login.
-                o.DefaultChallengeScheme = GoogleOpenIdConnectDefaults.AuthenticationScheme;
-                // This forces forbid results to be handled by Google OpenID Handler, which checks if
-                // extra scopes are required and does automatic incremental auth.
-                o.DefaultForbidScheme = GoogleOpenIdConnectDefaults.AuthenticationScheme;
-                // Default scheme that will handle everything else.
-                // Once a user is authenticated, the OAuth2 token info is stored in cookies.
-                o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            });*/
+                o.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                o.ClientId = googleAuthNSection["ClientId"];
+                o.ClientSecret = googleAuthNSection["ClientSecret"];
+            });
 
 
 
@@ -99,9 +88,8 @@ namespace dotNet_TWITTER.WEB_UI
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         [Obsolete]
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserContext dataContext)
+        public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            dataContext.Database.Migrate();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -126,6 +114,7 @@ namespace dotNet_TWITTER.WEB_UI
 
             app.UseAuthentication();
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace dotNet_TWITTER.WEB_UI.Controllers
+namespace dotNet_TWITTER.Controllers
 {
     public class PostController : Controller
     {
