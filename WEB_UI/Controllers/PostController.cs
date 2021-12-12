@@ -1,9 +1,7 @@
 ﻿using dotNet_TWITTER.Applications.Common.Models;
-using dotNet_TWITTER.Applications.Data;
 using dotNet_TWITTER.Infrastructure.Repository;
 using dotNet_TWITTER.Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -29,7 +27,7 @@ namespace dotNet_TWITTER.Controllers
             {
                 return BadRequest();
             }
-            return Ok(await postsActions.AddPost(filling, User.FindFirstValue(ClaimTypes.Name), User.FindFirstValue(ClaimTypes.NameIdentifier)));
+            return Ok(post);
         }
 
         [Authorize]

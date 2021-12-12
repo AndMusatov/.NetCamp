@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+WIJRSbsxhtoSnQdvvNy1O56gpsA2ALWWJH9iQ/ypoXo09P0GXpRojalGLtDxFlguRVHabkha0m1l1jdxr3l4Q==",
+  "dgSpecHash": "owOb6Xs6rMNHKmzoKEp/vRR18WfHkvIb5WGFA7BuJaieEWTj6sfkpGe8txf9kfBPXSL0ezBos9ZiCzrqa2dDbg==",
   "success": true,
   "projectFilePath": "C:\\Visual_Projects\\ELEKScamp\\Posts.Test\\Twitter.Unit.Test.csproj",
   "expectedPackageFiles": [
@@ -26,6 +26,7 @@
     "C:\\Users\\musat\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.12\\microsoft.entityframeworkcore.5.0.12.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.12\\microsoft.entityframeworkcore.abstractions.5.0.12.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.12\\microsoft.entityframeworkcore.analyzers.5.0.12.nupkg.sha512",
+    "C:\\Users\\musat\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\5.0.12\\microsoft.entityframeworkcore.inmemory.5.0.12.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.12\\microsoft.entityframeworkcore.relational.5.0.12.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\5.0.5\\microsoft.entityframeworkcore.sqlite.core.5.0.5.nupkg.sha512",
     "C:\\Users\\musat\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.11\\microsoft.entityframeworkcore.sqlserver.5.0.11.nupkg.sha512",

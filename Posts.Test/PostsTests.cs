@@ -1,17 +1,16 @@
 ﻿using dotNet_TWITTER.Applications.Common.Models;
-using dotNet_TWITTER.Infrastructure.Repository;
+using dotNet_TWITTER.Applications.Data;
 using dotNet_TWITTER.Controllers;
+using dotNet_TWITTER.Infrastructure.Repository;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 using Moq;
-using NUnit.Framework;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Xunit;
-using System;
 
 namespace Twitter.Unit.Test
 {
@@ -22,9 +21,9 @@ namespace Twitter.Unit.Test
         {
             _postRepository = new Mock<IPostsRepository>();
         }
-        
+
         [Fact]
-        public async Task PostCreate_should_return_PostFilling_PostUserId_PostUserName()
+        public async Task PostCreate_should_return_PostFilling_PostUserId_PostUserName() 
         {
             //Arrange
             var user = CreateUser();

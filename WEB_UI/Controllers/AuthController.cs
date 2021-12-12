@@ -47,7 +47,7 @@ namespace dotNet_TWITTER.Controllers
         [HttpGet("LoginUserEMail")]
         public IActionResult GetLoginUsername()
         {
-            return Content(User.FindFirstValue(ClaimTypes.Email));
+            return Ok(User.FindFirstValue(ClaimTypes.Email));
         }
 
         [Authorize]

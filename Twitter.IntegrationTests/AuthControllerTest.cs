@@ -3,6 +3,7 @@ using dotNet_TWITTER.Applications.Data;
 using dotNet_TWITTER.WEB_UI;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
@@ -16,80 +17,104 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Twitter.IntegrationTests.Base;
 using Xunit;
+using System.Text.Json;
+using Microsoft.AspNetCore.Authentication;
+using System.Net.Http.Headers;
+using System.Security.Claims;
 
 namespace Twitter.IntegrationTests
 {
-    public class AuthControllerTest
+    public class AuthControllerTest : TestBase
     {
-        //WebApplicationFactory<Startup> _factory;
-
-        public AuthControllerTest()
+        public AuthControllerTest(TestApplicationFactory<Startup, FakeStartup> factory) : base(factory)
         {
-            /*_factory = factory.WithWebHostBuilder(builder =>
+        }
+
+        [Theory]
+        [InlineData("/Registration?Email=bbbbcb@gmail.com&UserName=User5c&Password=1111&ConfirmPassword=1111", HttpStatusCode.OK)]
+        [InlineData("/Registration?Email=bbbbcb@gmail.com&UserName=User5c&Password=1111", HttpStatusCode.BadRequest)]
+        public async Task Post_Registration_Endpoints_should_return_StatusCode(string url, HttpStatusCode httpStatusCode)
+        {
+            // Arrange
+            WebApplicationFactory<Startup> factory = GetFactory(false);
+            HttpClient httpClient = factory.CreateClient();
+
+            var registerModel = new RegisterModel()
             {
-                builder.ConfigureTestServices(services =>
-                {
-                    var dbContextDesriptor = services.SingleOrDefault(d =>
-                    d.ServiceType == typeof(DbContextOptions<UserContext>));
+                Email = "test@gmail.com",
+                UserName = "TestUser",
+                Password = "1111",
+                ConfirmPassword = "1111"
+            };
+            var content = new StringContent(registerModel.ToString(), Encoding.UTF8, "application/json");
+            //string jsonString = System.Text.Json.JsonSerializer.Serialize<RegisterModel>(registerModel);
+            //var stringContent = new StringContent(jsonString);
 
-                    services.Remove(dbContextDesriptor);
+            // Act
+            var response = await httpClient.PostAsync(url, content);
 
-                    services.AddDbContext<UserContext>(options =>
-                    {
-                        options.UseInMemoryDatabase("twitter_test_db");
-                    });
-                });
-            }); ;*/
+            // Assert
+            response.StatusCode.Should().Be(httpStatusCode);
+        }
+
+        [Theory]
+        [InlineData("/AuthLogin?UserName=User5c&Password=1111", HttpStatusCode.OK)]
+        [InlineData("/AuthLogin?UserName=User5c", HttpStatusCode.BadRequest)]
+        public async Task Post_Login_Endpoints_should_return_StatusCode(string url, HttpStatusCode httpStatusCode)
+        {
+            // Arrange
+            WebApplicationFactory<Startup> factory = GetFactory(false);
+            HttpClient httpClient = factory.CreateClient();
+
+            var loginModel = new LoginModel()
+            {
+                UserName = "User5c",
+                Password = "1111"
+            };
+            var content = new StringContent(loginModel.ToString(), Encoding.UTF8, "application/json");
+            //string jsonString = System.Text.Json.JsonSerializer.Serialize<RegisterModel>(registerModel);
+            //var stringContent = new StringContent(jsonString);
+
+            // Act
+            var response = await httpClient.PostAsync(url, content);
+
+            // Assert
+            response.StatusCode.Should().Be(httpStatusCode);
         }
 
         [Fact]
-        public async Task Registration_should_return_OK()
+        public async Task Get_EndPointsReturnsSuccessForRegularUser()
         {
-            //Arrange
-            WebApplicationFactory<Startup> factory = new WebApplicationFactory<Startup>().WithWebHostBuilder(builder =>
+            // Arrange
+            WebApplicationFactory<Startup> factory = GetFactory(false);
+
+            HttpClient httpClient = factory.WithWebHostBuilder(builder =>
             {
                 builder.ConfigureTestServices(services =>
                 {
-                    var dbContextDesriptor = services.SingleOrDefault(d =>
-                    d.ServiceType == typeof(DbContextOptions<UserContext>));
-
-                    services.Remove(dbContextDesriptor);
-
-                    services.AddDbContext<UserContext>(options =>
-                    {
-                        options.UseInMemoryDatabase("twitter_test_db");
-                    });
+                    services.AddAuthentication("Test")
+                        .AddScheme<AuthenticationSchemeOptions, TestAuthHandler>(
+                            "Test", options => { });
                 });
-            }); ;
-            HttpClient httpClient = factory.CreateClient();
-            RegisterModel registerModel = new RegisterModel
+            })
+            .CreateClient(new WebApplicationFactoryClientOptions
             {
-                Email = "bbbbcb@gmail.com",
-                UserName = "User5c",
-                Password = "!1111Cc",
-                ConfirmPassword = "!1111Cc",
-            };
+                AllowAutoRedirect = false
+            });
 
-            var json = JsonConvert.SerializeObject(registerModel.ToString());
-            var data = new StringContent(content: json,
-                 encoding: Encoding.UTF8,
-                 mediaType: "application/json");
-
-            //Act
-            var response = await httpClient.PostAsync("https://localhost:44364/Registration?Email=bbbbcb@gmail.com&UserName=User5c&Password=!1111Cc&ConfirmPassword=!1111Cc", data);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Test");
+            // Act
+            var response = await httpClient.GetAsync("/LoginUserEMail");
 
             // Assert
-            response.StatusCode.Should().Be(HttpStatusCode.OK);
-            /*string getRegisterModel = await response.Content.ReadAsStringAsync();
-            getRegisterModel.Should().Be(registerModel.ToString());*/
+            response.Should().Be(HttpStatusCode.OK);
         }
 
-        [Fact]
-        public async Task Registration_should_return_BadRequest()
+        WebApplicationFactory<Startup> GetFactory(bool hasUser)
         {
-            //Arrange
-            WebApplicationFactory<Startup> factory = new WebApplicationFactory<Startup>().WithWebHostBuilder(builder =>
+            return new WebApplicationFactory<Startup>().WithWebHostBuilder(builder =>
             {
                 builder.ConfigureTestServices(services =>
                 {
@@ -103,36 +128,7 @@ namespace Twitter.IntegrationTests
                         options.UseInMemoryDatabase("twitter_test_db");
                     });
                 });
-            }); ;
-            HttpClient httpClient = factory.CreateClient();
-            RegisterModel registerModel = new RegisterModel
-            {
-                Email = "bbbbcb@gmail.com",
-                UserName = "User5c",
-                Password = "!1111Cc",
-                ConfirmPassword = "!1111Cc",
-            };
-
-            var payload = new Dictionary<string, string>
-            {
-              {"email", "bbbbcb@gmail.com"},
-              {"userName", "User5c"},
-              {"password", "!1111Cc"},
-              {"confirmPassword", "!1111Cc"}
-            };
-
-            var json = JsonConvert.SerializeObject(payload);
-            var data = new StringContent(content: json,
-                 encoding: Encoding.UTF8,
-                 mediaType: "application/json");
-
-            //Act
-            var response = await httpClient.PostAsync("/Registration", content: data);
-
-            // Assert
-            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-            string getRegisterModel = await response.Content.ReadAsStringAsync();
-            getRegisterModel.Should().Be(json);
+            }); 
         }
     }
 }

@@ -46,6 +46,7 @@ namespace dotNet_TWITTER.Controllers
                 return Json(await authActions.GoogleRegister(
                     result.Principal.FindFirst(ClaimTypes.Email).Value, result.Principal.FindFirst(ClaimTypes.Email).Value));
             }
+            await authActions.GoogleLogin(result.Principal.FindFirst(ClaimTypes.Email).Value);
             return Ok(result.Principal.FindFirst(ClaimTypes.Email).Value);
         }
     }

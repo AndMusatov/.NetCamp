@@ -13,11 +13,11 @@ namespace Twitter.IntegrationTests.Base
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
             context.HttpContext.User = new ClaimsPrincipal(new ClaimsIdentity(new List<Claim>
-        {
-            new Claim(ClaimTypes.NameIdentifier, "123"),
-            new Claim(ClaimTypes.Name, "Test user"),
-            new Claim(ClaimTypes.Email, "test@example.com")
-        }));
+            {
+                new Claim(ClaimTypes.NameIdentifier, "1"),
+                new Claim(ClaimTypes.Name, "TestUser"),
+                new Claim(ClaimTypes.Email, "test@example.com")
+            }));
 
             await next();
         }
