@@ -21,18 +21,12 @@ using Xunit;
 
 namespace Twitter.IntegrationTests
 {
-    public class PostControllerTests 
+    public class CommentControllerTests 
     {
-
-        public PostControllerTests()
-        {
-        }
-
         [Fact]
-        public async Task Get_EndpointsReturnSuccessAndCorrectContentType()
+        public async Task Get_ShowPostComments_should_return_HttpStatusCodeOK()
         {
             // Arrange
-            bool hasUser = false;
             WebApplicationFactory<Startup> factory = new WebApplicationFactory<Startup>().WithWebHostBuilder(builder =>
             {
                 builder.ConfigureTestServices(services =>
@@ -47,36 +41,22 @@ namespace Twitter.IntegrationTests
                         options.UseInMemoryDatabase("twitter_test_db");
                     });
                 });
-
-                builder.ConfigureTestServices(services =>
-                {
-                    services.AddMvc(options =>
-                    {
-                        if (hasUser)
-                        {
-                            options.Filters.Add(new AllowAnonymousFilter());
-                            options.Filters.Add(new FakeUserFilter());
-                        }
-                    })
-                    .AddApplicationPart(typeof(Startup).Assembly);
-                });
             }); ;
-            UserContext userContext = factory.Services.CreateScope().ServiceProvider.GetService<UserContext>();
 
-            List<Comment> comments = new List<Comment>() { new Comment { CommentId = "1"}, new Comment { CommentId = "2" }, new Comment { CommentId = "3" } };   
+            UserContext userContext = factory.Services.CreateScope().ServiceProvider.GetService<UserContext>();
+            List<Comment> comments = new List<Comment>() 
+                { new Comment { CommentId = "1", PostId = "1" }, new Comment { CommentId = "2", PostId = "1" }, new Comment { CommentId = "3", PostId = "1" } };
             await userContext.Comment.AddRangeAsync(comments);
+            Post post = new Post { PostId = "1"};
+            await userContext.Post.AddRangeAsync(post);
             await userContext.SaveChangesAsync();
             HttpClient httpClient = factory.CreateClient();
-            PostsParameters postsParameters = new PostsParameters { PageNumber = 1, PageSize = 5 };
-            var stringPayload = JsonConvert.SerializeObject(postsParameters);
-            var stringContent = new StringContent(stringPayload);
-            CancellationToken cancelTokenSource = new CancellationToken();
 
             // Act
-            HttpResponseMessage response = await httpClient.GetAsync("/ShowPostComments");
+            HttpResponseMessage response = await httpClient.GetAsync("/ShowPostComments?postId=1");
 
             // Assert
-            response.StatusCode.Should().Be(HttpStatusCode.OK); // Status Code 200-299
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
     }
 }

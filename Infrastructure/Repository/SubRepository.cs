@@ -38,7 +38,10 @@ namespace dotNet_TWITTER.Infrastructure.Repository
         }
         public bool SubscriptionExists(string userName, string subUserName)
         {
-            return _context.Subscriptions.Any(s => s.AuthUser == userName && s.SubUser == subUserName);
+            Subscription subscription = _context.Subscriptions.FirstOrDefault(s => s.AuthUser == userName && s.SubUser == subUserName);
+            if (subscription != null)
+                return false;
+            return true;
         }
     }
 }

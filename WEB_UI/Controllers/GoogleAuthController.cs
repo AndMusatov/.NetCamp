@@ -36,7 +36,7 @@ namespace dotNet_TWITTER.Controllers
         [Route("signin-google")]
         public async Task<ActionResult> GoogleResponse()
         {
-            AuthActions authActions = new AuthActions(_userRepository, _postsRepository);
+            AuthActions authActions = new AuthActions(_userRepository);
             var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             if (!result.Succeeded)
                 return BadRequest();
@@ -46,6 +46,7 @@ namespace dotNet_TWITTER.Controllers
                 return Json(await authActions.GoogleRegister(
                     result.Principal.FindFirst(ClaimTypes.Email).Value, result.Principal.FindFirst(ClaimTypes.Email).Value));
             }
+            await authActions.GoogleLogin(result.Principal.FindFirst(ClaimTypes.Email).Value);
             return Ok(result.Principal.FindFirst(ClaimTypes.Email).Value);
         }
     }

@@ -14,6 +14,7 @@ namespace dotNet_TWITTER.Infrastructure.Repository
         Task<Object> GoogleRegisterUser(User user);
         Task SignInUser(User user);
         Task<Object> PasswordSignInUser(string user, string password);
-        Task<User> GetByEmail(string email);    
+        Task<User> GetByEmail(string email);
+        Task RemoveUser(User user);
     }
 }

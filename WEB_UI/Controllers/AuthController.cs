@@ -12,11 +12,9 @@ namespace dotNet_TWITTER.Controllers
     public class AuthController : Controller
     {
         private readonly IUserRepository _userRepository;
-        private readonly IPostsRepository _postRepository;
-        public AuthController(IUserRepository userRepository, IPostsRepository postsRepository)
+        public AuthController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            _postRepository = postsRepository;
         }
 
 
@@ -25,7 +23,7 @@ namespace dotNet_TWITTER.Controllers
         {
             if (ModelState.IsValid)
             {
-                AuthActions authActions = new AuthActions(_userRepository, _postRepository);
+                AuthActions authActions = new AuthActions(_userRepository);
                 var result = await authActions.Registration(model);
                 return Ok(result);
             }
@@ -47,14 +45,14 @@ namespace dotNet_TWITTER.Controllers
         [HttpGet("LoginUserEMail")]
         public IActionResult GetLoginUsername()
         {
-            return Content(User.FindFirstValue(ClaimTypes.Email));
+            return Ok(User.FindFirstValue(ClaimTypes.Email));
         }
 
         [Authorize]
         [HttpDelete("DeleteLoginedUser")]
         public async Task<IActionResult> DeleteUser()
         {
-            AuthActions authActions = new AuthActions(_userRepository, _postRepository);
+            AuthActions authActions = new AuthActions(_userRepository);
             return Ok(await authActions.DeleteUser(User.FindFirstValue(ClaimTypes.NameIdentifier)));
         }
     }
