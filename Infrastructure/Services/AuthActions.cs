@@ -13,11 +13,9 @@ namespace dotNet_TWITTER.Infrastructure.Services
     public class AuthActions
     {
         private readonly IUserRepository _userRepository;
-        private readonly IPostsRepository _postsRepository;
-        public AuthActions(IUserRepository userRepository, IPostsRepository postsRepository)
+        public AuthActions(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            _postsRepository = postsRepository;
         }
 
         public async Task<object> Registration(RegisterModel registerModel)
@@ -30,9 +28,7 @@ namespace dotNet_TWITTER.Infrastructure.Services
 
         public async Task<object> DeleteUser(string userId)
         {
-            User user = await _userRepository.GetById(userId);
-            await _postsRepository.RemoveUserPosts(user.UserName);
-            await _userRepository.Remove(user);
+            await _userRepository.RemoveUser(await _userRepository.GetById(userId));
             return "User was deleted";
         }
 

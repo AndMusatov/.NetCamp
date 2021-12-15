@@ -2,27 +2,19 @@
 using dotNet_TWITTER.Applications.Data;
 using dotNet_TWITTER.WEB_UI;
 using FluentAssertions;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using Twitter.IntegrationTests.Base;
 using Xunit;
-using System.Text.Json;
-using Microsoft.AspNetCore.Authentication;
-using System.Net.Http.Headers;
-using System.Security.Claims;
 
 namespace Twitter.IntegrationTests
 {

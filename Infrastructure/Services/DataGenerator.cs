@@ -30,7 +30,7 @@ namespace dotNet_TWITTER.Infrastructure.Services
             var faker = new Faker();
             token = cancelTokenSource.Token;
 
-            var userIds = _userManager.Users.Count();
+            var userIds = _userManager.Users.Count() + 1;
 
             var testUsers = new Faker<User>()
                 .CustomInstantiator(f => new User())
@@ -68,7 +68,7 @@ namespace dotNet_TWITTER.Infrastructure.Services
             var faker = new Faker();
             token = cancelTokenSource.Token;
 
-            var userIds = _userManager.Users.Count();
+            var userIds = _userManager.Users.Count() + 1;
 
             var testUsers = new Faker<User>()
                 .CustomInstantiator(f => new User())

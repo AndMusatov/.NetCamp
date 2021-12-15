@@ -36,7 +36,7 @@ namespace dotNet_TWITTER.Controllers
         [Route("signin-google")]
         public async Task<ActionResult> GoogleResponse()
         {
-            AuthActions authActions = new AuthActions(_userRepository, _postsRepository);
+            AuthActions authActions = new AuthActions(_userRepository);
             var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             if (!result.Succeeded)
                 return BadRequest();

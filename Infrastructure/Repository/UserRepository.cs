@@ -15,6 +15,17 @@ namespace dotNet_TWITTER.Infrastructure.Repository
         {
         }
 
+        public async Task RemoveUser(User user)
+        {
+            List<Post> posts = _context.Post.Where(p => p.UserName == user.UserName).ToList();
+            _context.Post.RemoveRange(posts);
+            List<Comment> comments = _context.Comment.Where(c => c.UserName == user.UserName).ToList();
+            _context.Comment.RemoveRange(comments);
+            List<Subscription> Subscriptions = _context.Subscriptions.Where(s => s.AuthUser == user.UserName).ToList();
+            _context.Subscriptions.RemoveRange(Subscriptions);
+            await _userManager.DeleteAsync(user);
+        }
+
         public async Task<Object> RegisterUser(User user, string password)
         {
             return await _userManager.CreateAsync(user, password);
